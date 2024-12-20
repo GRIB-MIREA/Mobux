@@ -1,80 +1,52 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Скидки, промокоды и кэшбек - MOBUX</title>
+    <meta property="og:url" content="https://mobux.ru">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+    <header class="bg-blue-600 text-white p-6 text-center">
+        <h1 class="text-3xl font-bold">Добро пожаловать на мой сайт!</h1>
+        <p class="mt-2">Это пример страницы с использованием Tailwind CSS.</p>
+    </header>
+    <main class="container mx-auto mt-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300" alt="Пример изображения" class="rounded-lg mb-4">
+                <h2 class="text-xl font-semibold">Заголовок карточки</h2>
+                <p class="text-gray-600 mt-2">Это описание карточки. Здесь можно разместить любую информацию.</p>
+                <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Узнать больше</button>
             </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300" alt="Пример изображения" class="rounded-lg mb-4">
+                <h2 class="text-xl font-semibold">Заголовок карточки</h2>
+                <p class="text-gray-600 mt-2">Это описание карточки. Здесь можно разместить любую информацию.</p>
+                <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Узнать больше</button>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <img src="https://via.placeholder.com/300" alt="Пример изображения" class="rounded-lg mb-4">
+                <h2 class="text-xl font-semibold">Заголовок карточки</h2>
+                <p class="text-gray-600 mt-2">Это описание карточки. Здесь можно разместить любую информацию.</p>
+                <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Узнать больше</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+        <p>&copy; 2023 Мой сайт. Все права защищены.</p>
+    </footer>
 </body>
 </html>
