@@ -19,14 +19,23 @@
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
-    <header class="bg-blue-600 text-white p-6 text-center">
-        <h1 class="text-3xl font-bold">Добро пожаловать на мой сайт!</h1>
-        <p class="mt-2">Это пример страницы с использованием Tailwind CSS.</p>
-    </header>
+<body class="bg-gray-500">
     @yield('content')
-    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
-        <p>&copy; 2023 Мой сайт. Все права защищены.</p>
-    </footer>
+    <nav class="bg-black shadow fixed bottom-0 w-full">
+        <div class="flex justify-around p-4">
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">Акции</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">Категории</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">Профиль</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">О боте</a>
+            </div>
+        </div>
+    </nav>
 </body>
 </html>
