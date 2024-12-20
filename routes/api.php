@@ -15,7 +15,7 @@ use App\Http\Controllers\WebhookController;
 |
 */
 
-Route::post('webhook', [WebhookController::class, 'index']);
+Route::post('/webhook', [WebhookController::class, 'handleWebhook']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
