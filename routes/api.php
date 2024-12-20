@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +13,6 @@ use App\Http\Controllers\WebhookController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::post('/webhook', [WebhookController::class, 'handleWebhook']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
