@@ -16,6 +16,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

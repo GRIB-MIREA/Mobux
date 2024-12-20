@@ -16,7 +16,15 @@ class WebhookController extends Controller
         // Пример простого ответа
         if (isset($update['message'])) {
             $chatId = $update['message']['chat']['id'];
-            $text = "Hello, this is a response from your webhook!";
+            $text = $update['message']['text'];
+
+            if ($text === '/start') {
+                $responseText = "Добро пожаловать! Я ваш бот, как я могу помочь?";
+                $this->sendMessage($chatId, $responseText);
+            } else {
+                // Обрабатываем другие команды или текстовые сообщения
+                $this->sendMessage($chatId, "Вы написали: " . $text);
+            }
 
             // Отправка сообщения обратно в Telegram
             $this->sendMessage($chatId, $text);
