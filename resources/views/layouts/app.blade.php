@@ -19,7 +19,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-500">
+<body class="flex items-center justify-center min-h-screen bg-gray-500">
     @yield('content')
     <nav class="bg-black shadow fixed bottom-0 w-full">
         <div class="flex justify-around p-4">
