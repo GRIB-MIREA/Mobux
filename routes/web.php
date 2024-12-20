@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
+    Route::get('/', 'IndexController')->name('index');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\Bot', 'prefix' => 'bot'], function () {
+    Route::get('/', 'IndexController')->name('bot.index');
 });
 
 Auth::routes();
