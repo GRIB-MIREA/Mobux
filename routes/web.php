@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\TelegramController;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,13 @@ use App\Http\Controllers\TelegramController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/webhook', [WebhookController::class, 'handleWebhook']);
-Route::post('/send-message', [TelegramController::class, 'sendMessage']);
+
+dd(
+    Http::post('https://api.telegram.org/bot7770123301:AAH_3y0slyu2-BSVEjJ2ruBFivIf5cbRLfQ/sendMessage', [
+        'chat_id' => 299814741,
+        'text' => 'test'
+    ])->json()
+);
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');
