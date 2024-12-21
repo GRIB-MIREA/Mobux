@@ -19,7 +19,7 @@
                 <div>
                     <h2 class="text-xl font-bold">Магазин 1</h2>
                     <p class="text-sm text-gray-500">Электроника</p>
-                    <p class="mt-2 text-gray-700">Описание магазина 1. Здесь вы найдете лучшие электроника по доступным ценам.</p>
+                    <p class="mt-2 text-gray-700">Здесь вы найдете лучшие электроника по доступным ценам.</p>
                 </div>
                 <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
             </div>
@@ -32,7 +32,7 @@
                 <div>
                     <h2 class="text-xl font-bold">Магазин 2</h2>
                     <p class="text-sm text-gray-500">Одежда</p>
-                    <p class="mt-2 text-gray-700">Описание магазина 2. У нас широкий ассортимент одежды для всей семьи.</p>
+                    <p class="mt-2 text-gray-700">У нас широкий ассортимент одежды для всей семьи.</p>
                 </div>
                 <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
             </div>
@@ -45,7 +45,7 @@
                 <div>
                     <h2 class="text-xl font-bold">Магазин 3</h2>
                     <p class="text-sm text-gray-500">Спорт</p>
-                    <p class="mt-2 text-gray-700">Описание магазина 3. Все для вашего активного образа жизни и спорта.</p>
+                    <p class="mt-2 text-gray-700">Все для вашего активного образа жизни и спорта.</p>
                 </div>
                 <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
             </div>
@@ -58,7 +58,7 @@
                 <div>
                     <h2 class="text-xl font-bold">Магазин 4</h2>
                     <p class="text-sm text-gray-500">Книги</p>
-                    <p class="mt-2 text-gray-700">Описание магазина 4. Лучшие книги для чтения и саморазвития.</p>
+                    <p class="mt-2 text-gray-700">Лучшие книги для чтения и саморазвития.</p>
                 </div>
                 <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
             </div>
