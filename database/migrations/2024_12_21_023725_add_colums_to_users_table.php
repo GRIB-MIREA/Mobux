@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             if (!Schema::hasColumn('users', 'telegram_id')) {
-                $table->bigInteger('telegram_id')->nullable(); // Добавление колонки telegram_id
+                $table->bigInteger('telegram_id'); // Добавление колонки telegram_id
             }
             if (!Schema::hasColumn('users', 'first_name')) {
                 $table->string('first_name')->nullable(); // Добавление колонки first_name
