@@ -23,7 +23,7 @@ Http::post('https://api.telegram.org/bot7770123301:AAH_3y0slyu2-BSVEjJ2ruBFivIf5
 ])->json();
 
 Route::get('/webhook-data', function() {
-    dd(Cache::get('webhook-data'))
+    dd(Cache::get('webhook-data'));
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
