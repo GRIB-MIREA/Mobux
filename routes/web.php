@@ -17,16 +17,9 @@ use Illuminate\Support\Facades\Http;
 |
 */
 
-dd(
-    Http::post('https://api.telegram.org/bot7770123301:AAH_3y0slyu2-BSVEjJ2ruBFivIf5cbRLfQ/sendMessage', [
-        'chat_id' => 299814741,
-        'text' => 'test'
-    ])->json()
-);
-
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');
-});
+})
 
 Route::group(['namespace' => 'App\Http\Controllers\Bot', 'prefix' => 'bot'], function () {
     Route::get('/', 'IndexController')->name('bot.index');
