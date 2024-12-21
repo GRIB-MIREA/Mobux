@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Http;
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');
-})
+});
 
 Route::group(['namespace' => 'App\Http\Controllers\Bot', 'prefix' => 'bot'], function () {
     Route::get('/', 'IndexController')->name('bot.index');
