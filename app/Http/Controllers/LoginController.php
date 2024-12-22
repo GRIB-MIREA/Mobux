@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Http;
 class LoginController extends Controller
 {
     public function auth(Request $request){
+        if(!$this->token($request))
+        {
+            throw new \Exception('Токен не валидный');
+        }
         // $url = $request->input('photo_url');
         // $ext = pathinfo($url, PATHINFO_EXTENSION);
         // $file_name = uniqid().'.'.$ext;
@@ -38,5 +42,25 @@ class LoginController extends Controller
             return response()->redirectTo('/bot');
         }
         return response()->redirectTo('/');
+    }
+
+    public function token(Request $request)
+    {
+        $data = $request->all();
+        $check_hash = $request->input('hash');
+        unset($data['hash']);
+        $data_check_arr = [];
+        foreach ($data as $key => $value) {
+            $data_check_arr[] = $key . '=' . $value;
+        }
+        sort($data_check_arr);
+        $data_check_string = implode("\n", $data_check_arr);
+        $secret_key = hash('sha256', env('TELEGRAM_BOT_TOKEN'), true);
+        $hash = hash_hmac('sha256', $data_check_string, $secret_key);
+        if(strcmp($hash, $check_hash) == 0 && (time() - $data['auth_date']) < 86400)
+        {
+            return true;
+        }
+        return false;
     }
 }

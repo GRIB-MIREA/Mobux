@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\WebhookController;
-use App\Http\Controllers\TelegramController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
@@ -25,6 +24,8 @@ Http::post('https://api.telegram.org/bot7770123301:AAH_3y0slyu2-BSVEjJ2ruBFivIf5
 Route::get('/webhook-data', function() {
     dd(Cache::get('webhook-data'));
 });
+
+Route::any('/api/auth', [LoginController::class, 'auth']);
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');
