@@ -27,7 +27,7 @@ class LoginController extends Controller
 
         $user = User::updateOrCreate(['telegram_id' => $request->input('id')], [
             'telegram_id' => $request->input('id'),
-            'first_name' => $request->input('first_name'),
+            'name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'telegram_username' => $request->input('username'),
             'image' => $request->input('photo_url'),
