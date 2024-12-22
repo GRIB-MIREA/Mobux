@@ -26,6 +26,7 @@ Route::get('/webhook-data', function() {
 });
 
 Route::any('/api/auth', [LoginController::class, 'auth']);
+Route::get('/telegram-auth', [LoginController::class, 'telegramAuth'])->middleware('auth');
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');

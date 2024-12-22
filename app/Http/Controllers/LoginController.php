@@ -63,4 +63,12 @@ class LoginController extends Controller
         }
         return false;
     }
+
+    public function telegramAuth()
+    {
+        $token = md5(uniqid());
+        Auth::user()->telegram_token = $token;
+        Auth::user()->save();
+        return redirect('https://t.me/mobux_bot?start='.$token);
+    }
 }
