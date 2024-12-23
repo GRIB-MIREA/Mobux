@@ -30,6 +30,7 @@ class WebhookController extends Controller
         $url = "https://api.telegram.org/bot"."$token"."/sendMessage";
 
         $webAppUrl = 'https://t.me/mobux_bot/app';
+        $tgChannelUrl = 'https://t.me/m0bux';
 
         // Создаем кнопку для входа в веб-приложение
         $replyMarkup = [
@@ -39,13 +40,17 @@ class WebhookController extends Controller
                         'text' => 'Список предложений',
                         'url' => $webAppUrl,
                     ],
+                    [
+                        'text' => 'Наш канал с новостями',
+                        'url' => $tgChannelUrl,
+                    ],
                 ],
             ],
         ];
 
         $response = Http::post($url, [
             'chat_id' => $chatId,
-            'text' => 'Привет! Бот MOBUX поможет вам сэкономить на покупках в ваших любимых магазинах, предоставляя актуальные промокоды и специальные предложения!',
+            'text' => 'Бот MOBUX поможет сэкономить на покупках в ваших любимых магазинах, предоставляя актуальные промокоды и специальные предложения!',
             'reply_markup' => json_encode($replyMarkup),
         ]);
 
