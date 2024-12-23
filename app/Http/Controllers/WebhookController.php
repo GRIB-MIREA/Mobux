@@ -31,7 +31,7 @@ class WebhookController extends Controller
     private function sendStartMessage($chatId)
     {
         $token = env('TELEGRAM_BOT_TOKEN');
-        $url = "https://api.telegram.org/bot"."env('TELEGRAM_BOT_TOKEN')"."/sendMessage";
+        $url = "https://api.telegram.org/bot"."$token"."/sendMessage";
 
         $webAppUrl = 'https://t.me/mobux_bot/app'; // Замените на URL вашего веб-приложения
 
