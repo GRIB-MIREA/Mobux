@@ -29,19 +29,15 @@ class WebhookController extends Controller
         $token = env('TELEGRAM_BOT_TOKEN');
         $url = "https://api.telegram.org/bot"."$token"."/sendMessage";
 
-        $webAppUrl = 'https://mobux.ru/bot';
+        $webAppUrl = 'https://t.me/mobux_bot/app';
 
         // Создаем кнопку для входа в веб-приложение
         $replyMarkup = [
             'inline_keyboard' => [
                 [
                     [
-                        [
-                            'text' => 'Список предложений',
-                            'web_app' => [
-                                'url' => $webAppUrl,
-                            ]    
-                        ]
+                        'text' => 'Список предложений',
+                        'url' => $webAppUrl,
                     ],
                 ],
             ],
