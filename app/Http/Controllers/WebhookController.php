@@ -20,11 +20,7 @@ class WebhookController extends Controller
         if ($updates->getMessage()) {
             $chatId = $updates->getMessage()->getChat()->getId();
             $text = $updates->getMessage()->getText();
-    
-            // Проверяем, является ли сообщение командой /start
-            if ($text === '/start') {
-                $this->sendStartMessage($chatId);
-            }
+            $this->sendStartMessage($chatId, $text);
         }
     }
 
@@ -40,7 +36,7 @@ class WebhookController extends Controller
             'inline_keyboard' => [
                 [
                     [
-                        'text' => 'Войти в веб-приложение',
+                        'text' => 'Список предложений',
                         'url' => $webAppUrl,
                     ],
                 ],
@@ -49,7 +45,7 @@ class WebhookController extends Controller
 
         $response = Http::post($url, [
             'chat_id' => $chatId,
-            'text' => 'Добро пожаловать! Нажмите кнопку ниже, чтобы войти в веб-приложение:',
+            'text' => 'Привет! Бот MOBUX поможет вам сэкономить на покупках в ваших любимых магазинах, предоставляя актуальные промокоды и специальные предложения!',
             'reply_markup' => json_encode($replyMarkup),
         ]);
 
