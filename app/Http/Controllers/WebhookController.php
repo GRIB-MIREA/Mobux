@@ -31,20 +31,18 @@ class WebhookController extends Controller
 
         $webAppUrl = 'https://t.me/mobux_bot/app';
 
-        $webAppButton = [
-            'text' => 'Список предложений',
-            'web_app' => [
-                'url' => $webAppUrl,
-            ]
-        ];
-
         // Создаем кнопку для входа в веб-приложение
         $replyMarkup = [
             'inline_keyboard' => [
                 [
-                    [$webAppButton] // Добавляем кнопку в клавиатуру
-                ]
-            ]
+                    [
+                        'text' => 'Список предложений',
+                        'web_app' => [
+                            'url' => $webAppUrl,
+                        ]
+                    ],
+                ],
+            ],
         ];
 
         $response = Http::post($url, [
