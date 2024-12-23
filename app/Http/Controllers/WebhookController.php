@@ -36,9 +36,11 @@ class WebhookController extends Controller
             'inline_keyboard' => [
                 [
                     [
-                        'text' => 'Список предложений',
-                        'web_app' => [
-                            'url' => $webAppUrl,
+                        [
+                            'text' => 'Список предложений',
+                            'web_app' => [
+                                'url' => $webAppUrl,
+                            ]    
                         ]
                     ],
                 ],
