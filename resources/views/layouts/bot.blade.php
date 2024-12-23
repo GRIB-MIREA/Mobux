@@ -21,5 +21,21 @@
 </head>
 <body class="flex items-center justify-center min-h-screen bg-gray-500">
     @yield('content')
+    <nav class="bg-black shadow fixed bottom-0 w-full">
+        <div class="flex justify-around p-4">
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">Акции</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">Категории</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">Профиль</a>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-white hover:text-blue-500">О боте</a>
+            </div>
+        </div>
+    </nav>
 </body>
 </html>

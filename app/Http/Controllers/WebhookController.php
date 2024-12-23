@@ -6,25 +6,31 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Telegram\Bot\Api;
 
 class WebhookController extends Controller
 {
     public function index(Request $request)
     {
         Cache::forever('webhook-data', $request->all());
-        $token = env('TELEGRAM_BOT_TOKEN'); // Получаем токен из файла .env
-        $chatId = $request->input('message.chat.id'); // Получаем chat_id из входящего сообщения
-        $text = $request->input('message.text'); // Получаем текст сообщения
+        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $updates = $telegram->getWebhookUpdates();
+        
 
-        // Проверяем, является ли текст командой /start
-        if ($text === '/start') {
-            $this->sendStartMessage($chatId);
+        if ($updates->getMessage()) {
+            $chatId = $updates->getMessage()->getChat()->getId();
+            $text = $updates->getMessage()->getText();
+    
+            // Проверяем, является ли сообщение командой /start
+            if ($text === '/start') {
+                $this->sendStartMessage($chatId);
+            }
         }
     }
 
     private function sendStartMessage($chatId)
     {
-        $token = env('TELEGRAM');
+        $token = env('TELEGRAM_BOT_TOKEN');
         $url = "https://api.telegram.org/bot{$token}/sendMessage";
 
         $webAppUrl = 'https://t.me/mobux_bot/app'; // Замените на URL вашего веб-приложения

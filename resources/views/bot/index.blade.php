@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.bot')
 @section('content')
 <main class="container mx-auto mt-10">
     <div class="w-full p-6">
