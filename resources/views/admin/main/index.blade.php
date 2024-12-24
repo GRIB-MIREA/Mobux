@@ -22,22 +22,22 @@
           <div class="small-box bg-info">
             <div class="inner">
               <h3>123</h3>
-              <p>Фото в портфолио</p>
+              <p>Магазинов в боте</p>
             </div>
             <div class="icon">
               <i class="fas fa-image"></i>
             </div>
-            <a href="{{route('admin.portfolio.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('admin.card.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
           </div>
           <div class="small-box bg-success">
             <div class="inner">
               <h3>123</h3>
-              <p>Отзывы</p>
+              <p>Категорий в боте</p>
             </div>
             <div class="icon">
               <i class="fas fa-comments"></i>
             </div>
-            <a href="{{route('admin.feedback.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{route('admin.category.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>
