@@ -1,7 +1,6 @@
 @extends('layouts.bot')
 @section('content')
-<main class="container mx-auto mt-10">
-    <div class="w-full p-6">
+    <div class="p-6">
         <div class="relative">
             <input type="text" placeholder="Поиск..." class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
             <div class="absolute left-0 top-1/2 transform -translate-y-1/2 pl-3">
@@ -13,6 +12,10 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
         <!-- Карточка 1 -->
+        <div class="bg-[#1f1e24] bg-opacity-60 rounded-lg p-4 gradient-border flex">
+            <h1 class="text-white text-xl text-center">Прямоугольник с обводкой градиентом</h1>
+            <p class="text-white text-center mt-2">Фоновый цвет с прозрачностью 60%</p>
+        </div>
         <div class="bg-white shadow-md rounded-lg overflow-hidden flex">
             <img src="{{url('https://via.placeholder.com/150')}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
             <div class="p-4 flex flex-col justify-between">
@@ -64,6 +67,4 @@
             </div>
         </div>
     </div>
-    
-</main>
 @endsection
