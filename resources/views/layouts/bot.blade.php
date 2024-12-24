@@ -42,19 +42,19 @@
     </header>
     <main class="flex-grow">
         @yield('content')
+        <br>
+        <br>
+        <br>
+        <br>
     </main>
-    <nav class="bg-black shadow fixed bottom-0 w-full">
-        <div class="flex justify-around p-4">
-            <div class="flex flex-col items-center">
-                <a href="#" class="text-white hover:text-yellow-500">Акции</a>
-            </div>
-            <div class="flex flex-col items-center">
-                <a href="#" class="text-white hover:text-yellow-500">Категории</a>
-            </div>
-            <div class="flex flex-col items-center">
-                <a href="#" class="text-white hover:text-yellow-500">О боте</a>
-            </div>
+    <div class="fixed bottom-10 left-0 right-0 bg-[#1E1E1E] shadow-lg rounded-lg p-4 mx-10">
+        <div class="flex justify-around">
+            <a href="#" class="text-gray-100 hover:text-[#fcd839]">Акции</a>
+            <div class="h-6 w-px bg-gray-300 mx-2"></div>
+            <a href="#" class="text-gray-100 hover:text-[#fcd839]">Каталог</a>
+            <div class="h-6 w-px bg-gray-300 mx-2"></div>
+            <a href="#" class="text-gray-100 hover:text-[#fcd839]">О боте</a>
         </div>
-    </nav>
+    </div>
 </body>
 </html>
