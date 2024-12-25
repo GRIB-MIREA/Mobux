@@ -33,6 +33,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 
 Route::group(['namespace' => 'App\Http\Controllers\Bot', 'prefix' => 'bot'], function () {
     Route::get('/', 'IndexController')->name('bot.index');
+    Route::get('/categories', 'CategoryController')->name('bot.categories');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {

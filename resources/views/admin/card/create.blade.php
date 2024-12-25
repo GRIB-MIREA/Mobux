@@ -86,7 +86,7 @@
               @enderror
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="stamp" placeholder="Пометка" value="{{old('stamp')}}">
+              <input type="number" class="form-control" name="stamp" placeholder="Пометка" value="{{old('stamp')}}">
               @error('stamp')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
