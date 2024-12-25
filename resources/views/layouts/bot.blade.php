@@ -25,13 +25,6 @@
             background-position: center; /* Центрирует изображение */
         }
     </style>
-    <style>
-        .gradient-border {
-            border-image: linear-gradient(135deg, #fcd839, #999999) 1;
-            border-width: 1px;
-            border-style: solid;
-        }
-    </style>
 </head>
 <body class="flex flex-col items-center min-h-screen bg-custom">
     <header class="flex justify-center py-4 w-full">
@@ -47,7 +40,7 @@
         <br>
         <br>
     </main>
-    <div class="fixed bottom-10 left-0 right-0 bg-[#1E1E1E] shadow-lg rounded-lg p-4 mx-10">
+    <div class="fixed bottom-10 left-0 right-0 bg-[#1E1E1E] shadow-md rounded-lg p-4 mx-10">
         <div class="flex justify-around">
             <a href="#" class="text-gray-100 hover:text-[#fcd839]">Акции</a>
             <div class="h-6 w-px bg-gray-300 mx-2"></div>

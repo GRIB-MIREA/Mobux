@@ -30,8 +30,14 @@
               @enderror
             </div>
             <div class="form-group">
+              <textarea type="text" class="form-control" name="description" placeholder="Имя">{{$card->description}}</textarea>
+              @error('description')
+                <div class="text-danger">Это поле необходимо заполнить</div>
+              @enderror
+            </div>
+            <div class="form-group">
               <label for="exampleInputFile">Изменить изображение</label>
-              <div class="w-100 mb-3">
+              <div class="w-50 mb-3">
                 <img src="{{url('storage/' . $card->image)}}" alt="image" class="w-50">
               </div>
               <div class="input-group">

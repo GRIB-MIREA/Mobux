@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Bot;
 
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\Card;
+use App\Models\Category;
 
 class IndexController extends BaseController
 {
     public function __invoke()
-    {   
-        return view('bot.index');
+    {
+        $cards = Card::orderBy('position', 'asc')->get();  
+        return view('bot.index', compact('cards'));
     }
 }

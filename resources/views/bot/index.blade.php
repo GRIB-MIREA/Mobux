@@ -11,80 +11,19 @@
         </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
-        <!-- Карточка 1 -->
-        <div class="bg-[#1f1e24] bg-opacity-60 rounded-lg p-2 gradient-border flex">
-            <img src="{{url('https://via.placeholder.com/150')}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
+        <div class="bg-gradient-to-br from-[#524a26] to-[#1E1E1E] rounded-lg p-2 flex">
+            @foreach ($cards as $card)
+            <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
             <div class="p-4 flex flex-col justify-between">
                 <div>
-                    <h2 class="text-xl text-gray-100 font-bold">Магазин 1</h2>
+                    <h2 class="text-xl text-gray-100 font-bold">{{$card->title}}</h2>
                     <div class="w-24 h-px bg-gray-300 my-1"></div>
-                    <p class="text-xs text-gray-100">Электроника</p>
-                    <p class="mt-2 text-gray-100">Здесь вы найдете лучшие электроника по доступным ценам.</p>
+                    <p class="text-xs text-gray-100">{{$card->category->title}}</p>
+                    <p class="mt-2 text-gray-100">{{truncate_text($card->description, 10)}}</p>
                 </div>
                 <a href="#" class="mt-4 text-center bg-yellow-500 text-black px-4 py-2 rounded-full hover:bg-yellow-600">Подробнее</a>
             </div>
-        </div>
-        <div class="bg-gradient-to-br from-[#524a26] to-[#1E1E1E] bg-opacity-60 rounded-lg p-2 flex">
-            <img src="{{url('https://via.placeholder.com/150')}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
-            <div class="p-4 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xl text-gray-100 font-bold">Магазин 1</h2>
-                    <div class="w-24 h-px bg-gray-300 my-1"></div>
-                    <p class="text-xs text-gray-100">Электроника</p>
-                    <p class="mt-2 text-gray-100">Здесь вы найдете лучшие электроника по доступным ценам.</p>
-                </div>
-                <a href="#" class="mt-4 text-center bg-yellow-500 text-black px-4 py-2 rounded-full hover:bg-yellow-600">Подробнее</a>
-            </div>
-        </div>
-        <div class="bg-white shadow-md rounded-lg overflow-hidden flex">
-            <img src="{{url('https://via.placeholder.com/150')}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
-            <div class="p-4 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xl font-bold">Магазин 1</h2>
-                    <p class="text-sm text-gray-500">Электроника</p>
-                    <p class="mt-2 text-gray-700">Здесь вы найдете лучшие электроника по доступным ценам.</p>
-                </div>
-                <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
-            </div>
-        </div>
-    
-        <!-- Карточка 2 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden flex">
-            <img src="https://via.placeholder.com/150" alt="Логотип магазина 2" class="w-24 h-24 object-cover p-4">
-            <div class="p-4 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xl font-bold">Магазин 2</h2>
-                    <p class="text-sm text-gray-500">Одежда</p>
-                    <p class="mt-2 text-gray-700">У нас широкий ассортимент одежды для всей семьи.</p>
-                </div>
-                <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
-            </div>
-        </div>
-    
-        <!-- Карточка 3 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden flex">
-            <img src="https://via.placeholder.com/150" alt="Логотип магазина 3" class="w-24 h-24 object-cover p-4">
-            <div class="p-4 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xl font-bold">Магазин 3</h2>
-                    <p class="text-sm text-gray-500">Спорт</p>
-                    <p class="mt-2 text-gray-700">Все для вашего активного образа жизни и спорта.</p>
-                </div>
-                <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
-            </div>
-        </div>
-    
-        <!-- Карточка 4 -->
-        <div class="bg-white shadow-md rounded-lg overflow-hidden flex">
-            <img src="https://via.placeholder.com/150" alt="Логотип магазина 4" class="w-24 h-24 object-cover p-4">
-            <div class="p-4 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xl font-bold">Магазин 4</h2>
-                    <p class="text-sm text-gray-500">Книги</p>
-                    <p class="mt-2 text-gray-700">Лучшие книги для чтения и саморазвития.</p>
-                </div>
-                <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Подробнее</a>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

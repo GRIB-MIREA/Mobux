@@ -38,7 +38,7 @@
               @enderror
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="description" placeholder="Описание магазина" value="{{old('description')}}">
+              <textarea type="text" class="form-control" name="description" placeholder="Описание магазина">{{old('description')}}</textarea>
               @error('description')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
