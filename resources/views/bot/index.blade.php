@@ -11,31 +11,67 @@
         </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
-        {{-- @foreach ($cards as $card)
-        <div class="bg-gradient-to-br from-[#524a26] to-[#1E1E1E] rounded-lg p-2 flex">
-            <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
-            <div class="p-4 flex flex-col justify-between">
-                <div>
-                    <h2 class="text-xl text-gray-100 font-bold">{{$card->title}}</h2>
-                    <div class="w-24 h-px bg-gray-300 my-1"></div>
-                    <p class="text-xs text-gray-100">{{$card->category->title}}</p>
-                    <p class="mt-2 text-gray-100">{{truncate_text($card->description, 10)}}</p>
-                </div>
-                <a href="#" class="mt-4 text-center bg-yellow-500 text-black px-4 py-2 rounded-full hover:bg-yellow-600">Подробнее</a>
-            </div>
-        </div>
-        @endforeach --}}
         @foreach ($cards as $card)
-        <div class="bg-gradient-to-br from-[#2e2e2e] to-[#3a372d] rounded-md flex" style="-webkit-mask-image: radial-gradient(circle at right 8.5px bottom 76px, transparent 8.5px, rgb(255, 255, 255) 8.75px), radial-gradient(circle closest-side at 50% center, rgb(255, 255, 255) 99%, transparent 100%); -webkit-mask-size: 100%, 9.5px 5px; -webkit-mask-repeat: repeat, repeat-x; -webkit-mask-position: 8.5px center, 50% calc(100% - 73px); -webkit-mask-composite: source-out;">
+        {{-- <div class="bg-gradient-to-br from-[#2e2e2e] to-[#3a372d] rounded-md flex" style="-webkit-mask-image: radial-gradient(circle at right 8.5px bottom 76px, transparent 8.5px, rgb(255, 255, 255) 8.75px), radial-gradient(circle closest-side at 50% center, rgb(255, 255, 255) 99%, transparent 100%); -webkit-mask-size: 100%, 9.5px 5px; -webkit-mask-repeat: repeat, repeat-x; -webkit-mask-position: 8.5px center, 50% calc(100% - 73px); -webkit-mask-composite: source-out;">
             <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
             <div class="p-4 flex flex-col justify-between">
-                <div>
+                <div class="flex justify-between item-center">
                     <h2 class="text-xl text-gray-100 font-bold">{{$card->title}}</h2>
+                    <div class="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800">Ограниченное предложение</div>
+                </div>
+                <div>
                     <div class="w-24 h-px bg-gray-300 my-1"></div>
-                    <p class="text-xs text-gray-100">{{$card->category->title}}</p>
+                    <p class="text-xs text-gray-400">{{$card->category->title}}</p>
                     <p class="mt-2 text-gray-100">{{truncate_text($card->description, 10)}}</p>
                 </div>
                 <a href="#" class="mt-8 text-center bg-yellow-500 text-black px-4 py-2 rounded-full hover:bg-yellow-600">Подробнее</a>
+            </div>
+        </div> --}}
+        {{-- <div class="bg-gradient-to-br from-[#2e2e2e] to-[#3a372d] rounded-md flex" style="-webkit-mask-image: radial-gradient(circle at right 8.5px bottom 76px, transparent 8.5px, rgb(255, 255, 255) 8.75px), radial-gradient(circle closest-side at 50% center, rgb(255, 255, 255) 99%, transparent 100%); -webkit-mask-size: 100%, 9.5px 5px; -webkit-mask-repeat: repeat, repeat-x; -webkit-mask-position: 8.5px center, 50% calc(100% - 73px); -webkit-mask-composite: source-out;">
+            <div class="w-full p-4 flex flex-col items-center justify-center">
+                <div class="w-full h-24 object-cover">
+                    <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-2/6 transform -translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div>
+                    123
+                </div>
+                <div class="w-full text-center">
+                    <h2 class="text-xl text-gray-100 font-bold">{{$card->title}}</h2>
+                    <div class="w-24 h-px bg-gray-300 my-1 mx-auto"></div>
+                    <p class="text-xs text-gray-400">{{$card->category->title}}</p> 
+                </div>
+            </div>
+        </div> --}}
+        <div class="bg-gradient-to-br from-[#2e2e2e] to-[#3a372d] rounded-md flex" style="-webkit-mask-image: radial-gradient(circle at right 8.5px bottom 68px, transparent 8.5px, rgb(255, 255, 255) 8.75px), radial-gradient(circle closest-side at 50% center, rgb(255, 255, 255) 99%, transparent 100%); -webkit-mask-size: 100%, 8.5px 5px; -webkit-mask-repeat: repeat, repeat-x; -webkit-mask-position: 8.5px center, 50% calc(100% - 65px); -webkit-mask-composite: source-out;">
+            <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-24 h-24 object-cover p-4">
+            <div class="w-full p-4 flex flex-col justify-between">
+                <div class="flex justify-between item-center">
+                    <h2 class="text-xl text-gray-100 font-bold">{{$card->title}}</h2>
+                    <div class="flex flex-row space-x-1">
+                        <div class="bg-gray-200 px-1 py-1 rounded-full">
+                            <svg class="w-5 h-5 text-orange-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.597 3.2A1 1 0 0 0 7.04 4.289a3.49 3.49 0 0 1 .057 1.795 3.448 3.448 0 0 1-.84 1.575.999.999 0 0 0-.077.094c-.596.817-3.96 5.6-.941 10.762l.03.049a7.73 7.73 0 0 0 2.917 2.602 7.617 7.617 0 0 0 3.772.829 8.06 8.06 0 0 0 3.986-.975 8.185 8.185 0 0 0 3.04-2.864c1.301-2.2 1.184-4.556.588-6.441-.583-1.848-1.68-3.414-2.607-4.102a1 1 0 0 0-1.594.757c-.067 1.431-.363 2.551-.794 3.431-.222-2.407-1.127-4.196-2.224-5.524-1.147-1.39-2.564-2.3-3.323-2.788a8.487 8.487 0 0 1-.432-.287Z"/>
+                            </svg>                          
+                        </div>
+                        <div class="bg-gray-200 px-1 py-1 rounded-full">
+                            <svg class="w-5 h-5 text-blue-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.133 12.632v-1.8a5.406 5.406 0 0 0-4.154-5.262.955.955 0 0 0 .021-.106V3.1a1 1 0 0 0-2 0v2.364a.955.955 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C6.867 15.018 5 15.614 5 16.807 5 17.4 5 18 5.538 18h12.924C19 18 19 17.4 19 16.807c0-1.193-1.867-1.789-1.867-4.175ZM6 6a1 1 0 0 1-.707-.293l-1-1a1 1 0 0 1 1.414-1.414l1 1A1 1 0 0 1 6 6Zm-2 4H3a1 1 0 0 1 0-2h1a1 1 0 1 1 0 2Zm14-4a1 1 0 0 1-.707-1.707l1-1a1 1 0 1 1 1.414 1.414l-1 1A1 1 0 0 1 18 6Zm3 4h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2ZM8.823 19a3.453 3.453 0 0 0 6.354 0H8.823Z"/>
+                            </svg>                                                        
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="w-24 h-px bg-gray-300 my-1"></div>
+                    <p class="text-xs text-gray-400">{{$card->category->title}}</p>
+                </div>
+                <div class="flex flex-row space-x-2 mt-8">
+                    <a href="#" class="text-center font-bold bg-yellow-500 text-black px-4 py-2 rounded-full hover:bg-yellow-600">Подробнее</a>
+                    <a href="#" class="text-center bg-yellow-200 text-black px-6 py-2 rounded-full hover:bg-yellow-600">
+                        <svg class="w-6 h-6 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
+                        </svg>                                                   
+                    </a>
+                </div>
             </div>
         </div>
         @endforeach
