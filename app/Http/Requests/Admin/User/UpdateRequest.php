@@ -32,6 +32,7 @@ class UpdateRequest extends FormRequest
             'telegram_username' => 'string',
             'image' => 'file',
             'telegram_token' => 'string',
+            'role' => 'required|integer',
         ];
     }
 

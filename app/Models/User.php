@@ -12,6 +12,16 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    const ROLE_ADMIN = 0;
+    const ROLE_GUEST = 1;
+
+    public static function getRoles(){
+        return [
+            self::ROLE_ADMIN => 'Админ',
+            self::ROLE_ADMIN => 'Посетитель',
+        ];
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +34,8 @@ class User extends Authenticatable
         'telegram_username',
         'image',
         'email',
-        'telegram_token'
+        'telegram_token',
+        'role',
     ];
 
     /**

@@ -58,7 +58,7 @@
                     </tr>
                     <tr>
                       <td>Роль</td>
-                      <td>###</td>
+                      <td>{{ $user->role }}</td>
                     </tr>
                 </tbody>
               </table>
