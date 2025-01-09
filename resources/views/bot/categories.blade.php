@@ -6,7 +6,7 @@
                 <h1 class="text-xl font-semibold text-gray-100 sm:text-2xl">Категории:</h1>
               </div>
               @foreach ($categories as $category)
-              <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-1">
+              <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-4 py-1">
                 <a href="{{route('category.card.index', $category->id)}}" class="flex items-center rounded-lg px-4 py-2 gradient-hover" data-twe-ripple-init data-twe-ripple-color="light">
                   <svg class="w-6 h-6 text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
