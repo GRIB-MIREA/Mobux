@@ -14,18 +14,21 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Scripts -->
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        .bg-custom {
-            background-image: url('../assets/img/bg.jpg'); /* Замените на ваш URL */
-            background-size: cover; /* Заставляет изображение заполнять весь элемент */
-            background-position: center; /* Центрирует изображение */
-        }
-    </style>
+    @livewireStyles
 </head>
+<style>
+    .bg-custom {
+    background-image: url('/assets/img/bg.jpg'); /* Замените на ваш URL */
+    background-size: cover; /* Заставляет изображение заполнять весь элемент */
+    background-position: center; /* Центрирует изображение */
+}
+</style>
 <body class="flex flex-col items-center min-h-screen bg-custom">
     <header class="flex justify-center py-4 w-full">
         <div class="mx-auto text-center">
@@ -35,13 +38,14 @@
     </header>
     <main class="flex-grow w-full">
         @yield('content')
+        @livewireScripts
         <br>
         <br>
         <br>
         <br>
     </main>
     <div class="fixed bottom-10 left-0 right-0 bg-[#1E1E1E] shadow-md rounded-lg p-4 mx-10">
-        <div class="flex justify-around">
+        <div class="flex justify-evenly">
             <a href="{{route('bot.index')}}" class="text-gray-100 hover:text-[#fcd839] flex items-center">
                 <span class="px-1 hidden md:block">
                     <svg class="w-6 h-6 text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -60,7 +64,7 @@
                 Категории
             </a>
             <div class="h-6 w-px bg-gray-300 mx-2"></div>
-            <a href="#" class="text-gray-100 hover:text-[#fcd839] flex items-center">
+            <a href="{{route('bot.about')}}" class="text-gray-100 hover:text-[#fcd839] flex items-center">
                 <span class="px-1 hidden md:block">
                     <svg class="w-6 h-6 text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.408-5.5a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2h-.01ZM10 10a1 1 0 1 0 0 2h1v3h-1a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-1v-4a1 1 0 0 0-1-1h-2Z" clip-rule="evenodd"/>
@@ -70,5 +74,6 @@
             </a>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
 </html>

@@ -53,24 +53,20 @@
                       <td>{{ $card->rules }}</td>
                     </tr>
                     <tr>
-                      <td>Промокод</td>
-                      <td>{{ $card->promocode }}</td>
-                    </tr>
-                    <tr>
-                      <td>Награда</td>
-                      <td>{{ $card->reward }}</td>
-                    </tr>
-                    <tr>
-                      <td>Ссылка</td>
-                      <td>{{ $card->link }}</td>
-                    </tr>
-                    <tr>
                       <td>Позиция</td>
                       <td>{{ $card->position }}</td>
                     </tr>
                     <tr>
-                      <td>Пометка</td>
-                      <td>{{ $card->stamp }}</td>
+                      <td>Пометки</td>
+                      <td>
+                        @if ($card->stamps->isEmpty())
+                          Нет пометок
+                        @else
+                          @foreach ($card->stamps as $stamp)
+                          {{ $stamp->pluck('title')->implode(', ') }}
+                          @endforeach
+                        @endif
+                      </td>
                     </tr>
                     <tr>
                       <td>Категория</td>

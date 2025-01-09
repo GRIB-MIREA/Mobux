@@ -16,4 +16,13 @@ class Card extends Model
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function stamps() {
+        return $this->belongsToMany(Stamp::class, 'card_stamps', 'card_id', 'stamp_id');
+    }
+
+    public function promocodes()
+    {
+        return $this->hasMany(Promocode::class);
+    }
 }

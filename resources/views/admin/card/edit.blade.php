@@ -57,34 +57,18 @@
               @enderror
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="promocode" placeholder="Промокод" value="{{$card->promocode}}">
-              @error('promocode')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="reward" placeholder="Награда" value="{{$card->reward}}">
-              @error('reward')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="link" placeholder="Ссылка" value="{{$card->link}}">
-              @error('link')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
-            </div>
-            <div class="form-group">
               <input type="number" class="form-control" name="position" placeholder="Позиция" value="{{$card->position}}">
               @error('position')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="stamp" placeholder="Пометка" value="{{$card->stamp}}">
-              @error('stamp')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
+              <label>Пометки</label>
+              <select class="select2" name="stamp_ids[]" multiple="multiple" data-placeholder="Выберите пометки" style="width: 100%;">
+                @foreach ($stamps as $stamp)
+                <option value="{{$stamp->id}}" {{ (is_array(old('stamp_ids')) && in_array($stamp->id, old('stamp_ids'))) || in_array($stamp->id, $selectedStampIds) ? 'selected' : '' }}>{{$stamp->title}}</option>
+                @endforeach
+              </select>
             </div>
             <div class="form-group">
               <label>Выберите категорию</label>

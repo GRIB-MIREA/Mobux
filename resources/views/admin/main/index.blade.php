@@ -21,17 +21,27 @@
         <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>123</h3>
+              <h3>{{$data['cardCount']}}</h3>
               <p>Магазинов в боте</p>
             </div>
             <div class="icon">
-              <i class="fas fa-image"></i>
+              <i class="fas fa-shopping-cart"></i>
             </div>
             <a href="{{route('admin.card.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
           </div>
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3>{{$data['promocodeCount']}}</h3>
+              <p>Предложений в боте</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+            <a href="{{route('admin.promocode.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>123</h3>
+              <h3>{{$data['categoryCount']}}</h3>
               <p>Категорий в боте</p>
             </div>
             <div class="icon">

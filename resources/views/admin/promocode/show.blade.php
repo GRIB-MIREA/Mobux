@@ -1,0 +1,68 @@
+@extends('admin.layouts.main')
+
+@section('content')
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6 d-flex align-items-center">
+          <h1 class="m-0 mr-2">{{ $promocode->title }}</h1>
+          <a href="{{route('admin.promocode.edit', $promocode->id)}}"><i class="fas fa-pen"></i></a>
+          <form action="{{route('admin.promocode.delete', $promocode->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="border-0 bg-transparent"><i class="fas fa-trash text-danger" role="button"></i></button>
+          </form>  
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover text-nowrap">
+                <tbody>
+                    <tr>
+                      <td>Название</td>
+                      <td>{{ $promocode->title }}</td>
+                    </tr>
+                    <tr>
+                      <td>Магазин</td>
+                      <td>{{ $promocode->card->title }}</td>
+                    </tr>
+                    <tr>
+                      <td>Награда</td>
+                      <td>{{ $promocode->reward }}</td>
+                    </tr>
+                    <tr>
+                      <td>Ссылка</td>
+                      <td>{{ $promocode->link }}</td>
+                    </tr>
+                    <tr>
+                      <td>Действует до</td>
+                      <td>{{ $promocode->expiration_date }}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+      
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+@endsection

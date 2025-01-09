@@ -12,9 +12,14 @@ class CardService
     public function store($data) {
         try{
             DB::beginTransaction();
+
+            $stampIds = $data['stamp_ids'];
+            unset($data['stamp_ids']);
+
             $data['image'] = Storage::disk('public')->put('/images', $data['image']);
 
-            Card::firstOrCreate($data);
+            $card = Card::firstOrCreate($data);
+            $card->stamps()->attach($stampIds);
 
             DB::commit();
         } catch(Exception $exception){
@@ -23,18 +28,23 @@ class CardService
         }
     }
 
-    public function update($data, $portfolio) {
+    public function update($data, $card) {
         try{
             DB::beginTransaction();
+
+            $stampIds = $data['stamp_ids'];
+            unset($data['stamp_ids']);
+
             if (isset($data['image'])){
                 $data['image'] = Storage::disk('public')->put('/images', $data['image']);
             }
-            $portfolio->update($data);
+            $card->update($data);
+            $card->stamps()->sync($stampIds);
             DB::commit();
         } catch(Exception $exception){
             DB::rollBack();
             abort(500);
         }
-        return $portfolio;
+        return $card;
     }
 }

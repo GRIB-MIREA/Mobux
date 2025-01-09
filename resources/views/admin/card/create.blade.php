@@ -56,40 +56,26 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Укажите правила для текущей карточки. Например ограничение по региону, возрасту.</label>
               <input type="text" class="form-control" name="rules" placeholder="Правила акции" value="{{old('rules')}}">
               @error('rules')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="promocode" placeholder="Промокод" value="{{old('promocode')}}">
-              @error('promocode')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="reward" placeholder="Награда" value="{{old('reward')}}">
-              @error('reward')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="link" placeholder="Ссылка" value="{{old('link')}}">
-              @error('link')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
-            </div>
-            <div class="form-group">
+              <label>Выберите позицию, число от 1 до бесконечности</label>
               <input type="number" class="form-control" name="position" placeholder="Позиция" value="{{old('position')}}">
               @error('position')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
             </div>
             <div class="form-group">
-              <input type="number" class="form-control" name="stamp" placeholder="Пометка" value="{{old('stamp')}}">
-              @error('stamp')
-                <div class="text-danger">Это поле необходимо заполнить</div>
-              @enderror
+              <label>Пометки</label>
+              <select class="select2" name="stamp_ids[]" multiple="multiple" data-placeholder="Выберите пометки" style="width: 100%;">
+                @foreach ($stamps as $stamp)
+                <option {{is_array(old('stamp_ids')) && in_array($stamp->id, old('stamp_ids')) ? 'selected' : ''}} value="{{$stamp->id}}">{{$stamp->title}}</option>
+                @endforeach
+              </select>
             </div>
             <div class="form-group">
               <label>Выберите категорию</label>

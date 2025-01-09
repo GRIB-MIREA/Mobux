@@ -11,7 +11,7 @@
     <ul class="pt-3 nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <li class="nav-item">
         <a href="{{ route('admin.card.index') }}" class="nav-link">
-          <i class="nav-icon fas fa-image"></i>
+          <i class="nav-icon fas fa-shopping-cart"></i>
           <p>Карточки</p>
         </a>
       </li>
@@ -19,6 +19,18 @@
         <a href="{{ route('admin.category.index') }}" class="nav-link">
           <i class="nav-icon fas fa-toggle-on"></i>
           <p>Категории</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.promocode.index') }}" class="nav-link">
+          <i class="nav-icon fas fa-ticket-alt"></i>
+          <p>Промокоды</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.stamp.index') }}" class="nav-link">
+          <i class="nav-icon fas fa-tags"></i>
+          <p>Пометки</p>
         </a>
       </li>
       <li class="nav-item">
