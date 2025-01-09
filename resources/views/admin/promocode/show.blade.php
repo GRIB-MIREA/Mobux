@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                       <td>Действует до</td>
-                      <td>{{ $promocode->expiration_date }}</td>
+                      <td>{{ Carbon\Carbon::parse($promocode->expiration_date)->translatedFormat('d F Y') }}</td>
                     </tr>
                 </tbody>
               </table>

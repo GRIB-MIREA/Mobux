@@ -47,7 +47,7 @@
                       <td>{{ $promocode->card->title }}</td>
                       <td>{{ $promocode->reward }}</td>
                       <td>{{ $promocode->link }}</td>
-                      <td>{{ $promocode->expiration_date }}</td>
+                      <td>{{ Carbon\Carbon::parse($promocode->expiration_date)->translatedFormat('d F Y') }}</td>
                       <td class="text-center">
                         <a href="{{route('admin.promocode.show', $promocode->id)}}"><i class="far fa-eye"></i></a>
                       </td>
