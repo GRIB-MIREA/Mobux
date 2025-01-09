@@ -18,7 +18,7 @@ class User extends Authenticatable
     public static function getRoles(){
         return [
             self::ROLE_ADMIN => 'Админ',
-            self::ROLE_ADMIN => 'Посетитель',
+            self::ROLE_GUEST => 'Посетитель',
         ];
     }
 
