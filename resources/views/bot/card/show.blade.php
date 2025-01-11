@@ -8,7 +8,7 @@
                   <h1 class="text-xl font-semibold text-gray-100 sm:text-2xl">{{$card->title}}</h1>
                   @foreach ($card->stamps as $stamp)
                       <div class="flex flex-row space-x-2">
-                        <div class="bg-gray-200 lg:px-1 lg:py-1 px-2 py-2 rounded-full" data-twe-toggle="tooltip" data-twe-placement="top" data-twe-ripple-init data-twe-ripple-color="light" title="{{$stamp->title}}">
+                        <div class="bg-gray-200 lg:px-1 lg:py-1 px-2 py-2 rounded-full">
                           <svg class="w-5 h-5" style="color: #{{$stamp->color}};" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                               <path d="{{$stamp->icon}}"/>
                           </svg>                                                        
@@ -44,7 +44,7 @@
               </div>  
               @endforeach
               <button class="inline-block mt-6 rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2"
-              type="button" data-twe-collapse-init data-twe-ripple-init data-twe-ripple-color="light" data-twe-target="#collapseRules" aria-expanded="false" aria-controls="collapseRules">Условия акции</button>
+              type="button" data-twe-collapse-init data-twe-ripple-init data-twe-ripple-color="light" data-twe-target="#collapseRules" aria-expanded="false" aria-controls="collapseRules">Где и как применятеся бонус</button>
               <div class="!visible hidden text-center text-white mt-8"
               id="collapseRules"
               data-twe-collapse-item>
