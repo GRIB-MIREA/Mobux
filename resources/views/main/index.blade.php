@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<header class="py-6 bg-gray-800">
+<header class="py-6 bg-[#1b1a20]">
     <div class="container mx-auto flex justify-between items-center">
         <div class="text-yellow-400 text-3xl font-bold">
             <img src="{{asset('assets/img/logo.png')}}" alt="Логотип" class="h-8">
@@ -27,21 +27,21 @@
 </header>
 
 <!-- Introduction Section -->
-<section id="about" class="py-20 bg-gray-800">
-    <div class="container mx-auto flex flex-col md:flex-row items-center bg-gray-500 rounded-3xl">
-        <div class="md:w-1/2 lg:text-left text-center mb-10 md:mb-0">
-            <h2 class="font-bold lg:text-7xl text-xl mb-4 text-gray-100">Ваш проводник в мир выгодных покупок!</h2>
-            <p class="text-xl mb-8 text-gray-100">Лучшие предложения в одном месте.</p>
+<section id="about" class="py-20 bg-gradient-to-r from-[#1b1a20] to-[#242426] relative">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 lg:text-left lg:ml-20 text-center mb-10 md:mb-0">
+            <h2 class="font-bold lg:text-7xl text-xl mb-4 text-gray-100">Все скидки тут</h2>
+            <p class="text-xl mb-8 text-gray-100">Сотни предложений ждут вас</p>
             <a href="#partners" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg hover:bg-yellow-300 transition">Посмотреть промокоды</a>
         </div>
-        <div class="md:w-1/2 flex justify-center">
-            <img src="{{asset('assets/img/iphone.png')}}" alt="iPhone" class="lg:w-1/2 w-1/2 h-auto">
+        <div class="md:w-1/2 flex justify-center relative">
+            <img src="{{asset('assets/img/iphone.png')}}" alt="iPhone" class="lg:w-2/3 w-1/2 h-auto absolute right-0 -top-20">
         </div>
     </div>
 </section>
 
 <!-- Partners Section -->
-<section id="partners" class="py-20 bg-gray-800">
+<section id="partners" class="py-20 bg-[#1b1a20]">
     <div class="container mx-auto text-center">
         <h2 class="text-3xl font-bold mb-6">Наши партнёры</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -58,7 +58,7 @@
 </section>
 
 <!-- Advantages Section -->
-<section id="advantages" class="py-20">
+<section id="advantages" class="py-20 bg-[#242426]">
     <div class="container mx-auto text-center">
         <h2 class="text-3xl font-bold mb-6">Преимущества нашего сайта</h2>
         <ul class="list-disc list-inside space-y-4">
@@ -69,11 +69,11 @@
             <li>🔹 Легкость в использовании</li>
         </ul>
     </div>
-    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="mobux_bot" data-size="large" data-auth-url="https://mobux.ru/auth/telegram" data-request-access="write"></script>
+    {{-- <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="mobux_bot" data-size="large" data-auth-url="https://mobux.ru/auth/telegram" data-request-access="write"></script> --}}
 </section>
 
 <!-- Footer -->
-<footer class="py-6 bg-gray-800 text-center">
+<footer class="py-6 bg-[#1b1a20] text-center">
     <p>&copy; 2023 Промокоды для магазинов. Все права защищены.</p>
 </footer>
 

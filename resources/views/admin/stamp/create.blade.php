@@ -38,8 +38,8 @@
             </div>
             <div class="form-group">
               <input type="text" class="form-control" name="color" placeholder="Цвет иконки">
-              <p>Заполнять поле в формате цветов Tailwind, например blue-500</p>
-              <a href="https://tailwindcss.com/docs/customizing-colors" target="_blank">Все цвета тут</a>
+              <p>Заполнять поле в формате цветов HEX, например 7b3f00</p>
+              <a href="https://csscolor.ru/" target="_blank">Все цвета тут</a>
               @error('color')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror

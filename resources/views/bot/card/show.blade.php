@@ -9,7 +9,7 @@
                   @foreach ($card->stamps as $stamp)
                       <div class="flex flex-row space-x-2">
                         <div class="bg-gray-200 lg:px-1 lg:py-1 px-2 py-2 rounded-full" data-twe-toggle="tooltip" data-twe-placement="top" data-twe-ripple-init data-twe-ripple-color="light" title="{{$stamp->title}}">
-                          <svg class="w-5 h-5 text-{{$stamp->color}}" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                          <svg class="w-5 h-5" style="color: #{{$stamp->color}};" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                               <path d="{{$stamp->icon}}"/>
                           </svg>                                                        
                         </div>

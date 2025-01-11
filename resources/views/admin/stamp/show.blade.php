@@ -42,7 +42,7 @@
                     </tr>
                     <tr>
                       <td>Цвет иконки</td>
-                      <td>{{ $stamp->color }}</td>
+                      <td>{{$stamp->color}}</td>
                     </tr>
                 </tbody>
               </table>
