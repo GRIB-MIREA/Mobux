@@ -46,7 +46,7 @@
                 </div>
                 <p class="mt-8 text-center text-2xl font-semibold">Наши социальные сети:</p>
                 <div class="flex justify-center items-center mt-4">
-                  <a href="https://t.me/m0bux" target="_blank" class="flex items-center w-1/10 bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
+                  <a href="https://t.me/m0bux" target="_blank" class="flex items-center w-1/10 bg-[#27a7e7] text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
                     <i class="fab fa-telegram fa-2x mr-4"></i>
                     Наш канал в телеграм
                   </a>
