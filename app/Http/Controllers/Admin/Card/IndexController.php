@@ -10,7 +10,7 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $cards = Card::all();
+        $cards = Card::orderBy('position', 'asc')->get();
         return view('admin.card.index', compact('cards'));
     }
 }
