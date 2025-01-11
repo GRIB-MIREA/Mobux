@@ -27,7 +27,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-500">
+<body>
     @yield('content')
 </body>
 </html>
