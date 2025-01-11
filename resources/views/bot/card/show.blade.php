@@ -3,7 +3,7 @@
         <section class="antialiased p-6">
             <div class="flex flex-col mx-auto px-4 2xl:px-0">
               <div class="flex flex-row items-center">
-                <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-36 h-36 object-cover p-4">
+                <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-36 h-36 object-cover p-4 rounded-full">
                 <div class="flex flex-col items-start space-y-2">
                   <h1 class="text-xl font-semibold text-gray-100 sm:text-2xl">{{$card->title}}</h1>
                   @foreach ($card->stamps as $stamp)
