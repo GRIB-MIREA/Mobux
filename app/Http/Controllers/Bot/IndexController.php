@@ -41,7 +41,6 @@ class IndexController extends BaseController
                  'photo_url' => $image,
              ]);
          }
-         dd($telegramId);
 
         $cards = Card::orderBy('position', 'asc')->with('stamps')->get();  
         return view('bot.index', compact('cards', 'telegramId', 'username', 'name', 'lastName', 'image'));
