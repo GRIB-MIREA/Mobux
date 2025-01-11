@@ -57,7 +57,7 @@
             </div>
             <div class="form-group">
               <label>Укажите правила для текущей карточки. Например ограничение по региону, возрасту.</label>
-              <input type="text" class="form-control" name="rules" placeholder="Правила акции" value="{{old('rules')}}">
+              <textarea id="summernote" name="rules">{{old('rules')}}</textarea>
               @error('rules')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror

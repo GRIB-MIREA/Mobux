@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="rules" placeholder="Правила акции" value="{{$card->rules}}">
+              <textarea id="summernote" class="form-control" name="rules">{{$card->rules}}</textarea>
               @error('rules')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror

@@ -45,10 +45,10 @@
               @endforeach
               <button class="inline-block mt-6 rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2"
               type="button" data-twe-collapse-init data-twe-ripple-init data-twe-ripple-color="light" data-twe-target="#collapseRules" aria-expanded="false" aria-controls="collapseRules">Условия акции</button>
-              <div class="!visible hidden text-center text-white mt-2"
+              <div class="!visible hidden text-center text-white mt-8"
               id="collapseRules"
               data-twe-collapse-item>
-              {{$card->rules}}
+              {!!$card->rules!!}
             </div>
             </div>
         </section>
