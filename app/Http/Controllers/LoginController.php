@@ -72,43 +72,43 @@ class LoginController extends Controller
     //     return redirect('https://t.me/mobux_bot?start='.$token);
     // }
 
-    public function authenticate(Request $request)
-    {
-        $data = $request->all();
-        $checkHash = $data['hash'];
-        unset($data['hash']);
+    // public function authenticate(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $checkHash = $data['hash'];
+    //     unset($data['hash']);
 
-        // Проверка контрольной суммы
-        $secretKey = hash('sha256', env('TELEGRAM_BOT_TOKEN'), true);
-        $checkString = collect($data)->map(function ($value, $key) {
-            return "$key=$value";
-        })->sort()->implode("\n");
+    //     // Проверка контрольной суммы
+    //     $secretKey = hash('sha256', env('TELEGRAM_BOT_TOKEN'), true);
+    //     $checkString = collect($data)->map(function ($value, $key) {
+    //         return "$key=$value";
+    //     })->sort()->implode("\n");
 
-        $calculatedHash = hash_hmac('sha256', $checkString, $secretKey);
+    //     $calculatedHash = hash_hmac('sha256', $checkString, $secretKey);
 
-        if ($calculatedHash !== $checkHash) {
-            abort(403, 'Неверная подпись данных.');
-        }
+    //     if ($calculatedHash !== $checkHash) {
+    //         abort(403, 'Неверная подпись данных.');
+    //     }
 
-        // Проверяем срок действия
-        if (time() - $data['auth_date'] > 86400) {
-            abort(403, 'Время сессии истекло.');
-        }
+    //     // Проверяем срок действия
+    //     if (time() - $data['auth_date'] > 86400) {
+    //         abort(403, 'Время сессии истекло.');
+    //     }
 
-        // Ищем или создаём пользователя
-        $user = User::firstOrCreate(
-            ['telegram_id' => $data['id']],
-            [
-                'name' => $data['first_name'] ?? 'User',
-                'username' => $data['username'] ?? null,
-                'image' => $data['photo_url'] ?? null,
-            ]
-        );
+    //     // Ищем или создаём пользователя
+    //     $user = User::firstOrCreate(
+    //         ['telegram_id' => $data['id']],
+    //         [
+    //             'name' => $data['first_name'] ?? 'User',
+    //             'username' => $data['username'] ?? null,
+    //             'image' => $data['photo_url'] ?? null,
+    //         ]
+    //     );
 
-        // Логиним пользователя
-        Auth::login($user);
+    //     // Логиним пользователя
+    //     Auth::login($user);
 
-        // Перенаправляем в Mini App
-        return redirect('/bot');
-    }
+    //     // Перенаправляем в Mini App
+    //     return redirect('/bot');
+    // }
 }
