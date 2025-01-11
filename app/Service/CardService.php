@@ -14,13 +14,15 @@ class CardService
         try{
             DB::beginTransaction();
 
-            $stampIds = $data['stamp_ids'];
+            $stampIds = $data['stamp_ids'] ?? [];
             unset($data['stamp_ids']);
 
             $data['image'] = Storage::disk('public')->put('/images', $data['image']);
 
             $card = Card::firstOrCreate($data);
-            $card->stamps()->attach($stampIds);
+            if (!empty($stampIds)) {
+                $card->stamps()->attach($stampIds);
+            }
 
             DB::commit();
         } catch(Exception $exception){
