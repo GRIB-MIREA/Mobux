@@ -69,7 +69,7 @@
             <li>🔹 Легкость в использовании</li>
         </ul>
     </div>
-    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="mobux_bot" data-size="large" data-auth-url="https://mobux.ru/api/auth" data-request-access="write"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="mobux_bot" data-size="large" data-auth-url="https://mobux.ru/auth/telegram" data-request-access="write"></script>
 </section>
 
 <!-- Footer -->
