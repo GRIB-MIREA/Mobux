@@ -25,7 +25,12 @@
     <link rel="manifest" href="{{asset('site.webmanifest')}}" />
 
     <!-- Scripts -->
-    <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+    <script async src="https://telegram.org/js/telegram-widget.js?7" 
+        data-telegram-login="mobux_bot" 
+        data-size="large" 
+        data-radius="10" 
+        data-auth-url="https://mobux.ru/auth/telegram" 
+        data-request-access="write"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
