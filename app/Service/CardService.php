@@ -27,6 +27,7 @@ class CardService
             DB::commit();
         } catch(Exception $exception){
             DB::rollBack();
+            Log::error('StoreCardError: ' . $exception->getMessage());
             abort(500);
         }
     }
