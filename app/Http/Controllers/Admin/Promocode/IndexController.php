@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $promocodes = Promocode::all();
+        $promocodes = Promocode::paginate(10);
         return view('admin.promocode.index', compact('promocodes'));
     }
 }

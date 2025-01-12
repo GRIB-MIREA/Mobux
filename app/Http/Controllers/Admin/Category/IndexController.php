@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $categories = Category::orderBy('position', 'asc')->get();
+        $categories = Category::orderBy('position', 'asc')->paginate(10);
         return view('admin.category.index', compact('categories'));
     }
 }

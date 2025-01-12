@@ -48,7 +48,7 @@
                 @endforeach
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group w-50">
               <input type="date" class="form-control" name="expiration_date" placeholder="Срок действия">
               @error('expiration_date')
                 <div class="text-danger">Это поле необходимо заполнить</div>

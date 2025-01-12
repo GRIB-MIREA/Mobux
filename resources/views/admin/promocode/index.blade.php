@@ -33,8 +33,6 @@
                     <th>ID</th>
                     <th>Название</th>
                     <th>Магазин</th>
-                    <th>Награда</th>
-                    <th>Ссылка</th>
                     <th>Действует до</th>
                     <th colspan="3" class="text-center">Действия</th>
                   </tr>
@@ -45,8 +43,6 @@
                       <td>{{ $promocode->id }}</td>
                       <td>{{ $promocode->title }}</td>
                       <td>{{ $promocode->card->title }}</td>
-                      <td>{{ $promocode->reward }}</td>
-                      <td>{{ $promocode->link }}</td>
                       <td>{{ Carbon\Carbon::parse($promocode->expiration_date)->translatedFormat('d F Y') }}</td>
                       <td class="text-center">
                         <a href="{{route('admin.promocode.show', $promocode->id)}}"><i class="far fa-eye"></i></a>
@@ -66,7 +62,9 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.card-body -->
+          </div>
+          <div class="m-auto">
+            {{$promocodes->links()}}
           </div>
         </div>
       </div>

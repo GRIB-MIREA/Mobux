@@ -60,7 +60,9 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.card-body -->
+          </div>
+          <div class="m-auto">
+            {{$categories->links()}}
           </div>
         </div>
       </div>
