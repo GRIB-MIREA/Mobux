@@ -22,7 +22,7 @@
               @foreach ($card->promocodes as $promocode)
               <div class="card-item p-4 mt-6 bg-gradient-to-br from-[#2e2e2e] to-[#3a372d] rounded-md flex border border-zinc-900" style="-webkit-mask-image: radial-gradient(circle at right 8.5px bottom 68px, transparent 8.5px, rgb(255, 255, 255) 8.75px), radial-gradient(circle closest-side at 50% center, rgb(255, 255, 255) 99%, transparent 100%); -webkit-mask-size: 100%, 8.5px 5px; -webkit-mask-repeat: repeat, repeat-x; -webkit-mask-position: 8.5px center, 50% calc(100% - 65px); -webkit-mask-composite: source-out;">
                 <div class="flex flex-col w-full">
-                  <div class="text-white text-4xl text-center">{{$promocode->reward}}</div>
+                  <div class="text-white lg:text-4xl text-xl text-center">{{$promocode->reward}}</div>
                   <div class="flex flex-row items-between space-x-4">
                     <div class="flex lg:flex-row flex-col justify-between bg-zinc-500 rounded-md lg:w-11/12 w-4/5 p-4 mt-2">
                       <div class="text-white lg:text-2xl text-md">Промокод: <strong>{{$promocode->title}}</strong></div>
