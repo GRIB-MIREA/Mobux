@@ -18,9 +18,6 @@ use Illuminate\Support\Facades\Http;
 |
 */
 
-Http::post('https://api.telegram.org/bot7770123301:AAH_3y0slyu2-BSVEjJ2ruBFivIf5cbRLfQ/setWebhook', [
-    'url' => 'https://mobux.ru/api/webhook'
-])->json();
 Route::get('/webhook-data', function() {
     dd(Cache::get('webhook-data'));
 });
