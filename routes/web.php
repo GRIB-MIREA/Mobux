@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Bot\IndexController;
+use App\Http\Middleware\TelegramRequest;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
@@ -30,7 +31,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Bot', 'prefix' => 'bot'], function () {
-    Route::get('/', 'IndexController')->name('bot.index');
+    Route::get('/', 'IndexController')->name('bot.index')->middleware(TelegramRequest::class);
     Route::get('/categories', 'CategoryController')->name('bot.categories');
     Route::get('/about', 'AboutController')->name('bot.about');
     Route::group(['namespace' => 'Card', 'prefix' => 'card'], function() {

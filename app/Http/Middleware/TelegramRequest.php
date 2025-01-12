@@ -19,7 +19,6 @@ class TelegramRequest
     public function handle(Request $request, Closure $next)
     {
         $data = $request->all();
-        dd($data);
         $checkHash = $data['hash'];
         unset($data['hash']);
 

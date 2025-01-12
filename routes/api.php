@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('webhook', [WebhookController::class, 'index'])->middleware(TelegramRequest::class);
+Route::post('webhook', [WebhookController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
