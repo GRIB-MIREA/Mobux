@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Http;
 Route::get('/webhook-data', function() {
     dd(Cache::get('webhook-data'));
 });
+Route::get('/bot-data', function() {
+    dd(Cache::get('bot-data'));
+});
 Route::any('/api/auth', [LoginController::class, 'auth']);
 Route::get('/auth/telegram', [LoginController::class, 'authenticate'])->middleware('auth');
 

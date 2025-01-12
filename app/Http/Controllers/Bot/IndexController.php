@@ -7,10 +7,11 @@ use App\Models\Card;
 use App\Models\User;
 use App\Models\Stamp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class IndexController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         //  // Получаем данные пользователя из параметров URL
         //  $telegramId = $request->query('user_id');
@@ -41,7 +42,7 @@ class IndexController extends BaseController
         //          'photo_url' => $image,
         //      ]);
         //  }
-
+        Cache::forever('bot-data', $request->all());
         $cards = Card::orderBy('position', 'asc')->with('stamps')->get();  
         return view('bot.index', compact('cards'));
     }
