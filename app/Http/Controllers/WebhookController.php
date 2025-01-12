@@ -12,16 +12,16 @@ class WebhookController extends Controller
 {
     public function index(Request $request)
     {
-        // Cache::forever('webhook-data', $request->all());
-        // $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
-        // $updates = $telegram->getWebhookUpdates();
+        Cache::forever('webhook-data', $request->all());
+        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $updates = $telegram->getWebhookUpdates();
         
 
-        // if ($updates->getMessage()) {
-        //     $chatId = $updates->getMessage()->getChat()->getId();
-        //     $text = $updates->getMessage()->getText();
-        //     $this->sendStartMessage($chatId, $text);
-        // }
+        if ($updates->getMessage()) {
+            $chatId = $updates->getMessage()->getChat()->getId();
+            $text = $updates->getMessage()->getText();
+            $this->sendStartMessage($chatId, $text);
+        }
     }
 
     private function sendStartMessage($chatId)
