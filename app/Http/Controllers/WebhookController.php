@@ -38,7 +38,7 @@ class WebhookController extends Controller
                 [
                     [
                         'text' => 'Все скидки',
-                        'url' => $webAppUrl,
+                        'web_app' => $webAppUrl,
                     ],
                     [
                         'text' => 'Наш канал',

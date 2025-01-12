@@ -17,7 +17,7 @@ class IndexController extends BaseController
         //  $telegramId = $request->query('user_id');
         //  $username = $request->query('username');
         //  $name = $request->query('first_name');
-        //  $lastName = $request->query('last_name');
+        //  $last_name = $request->query('last_name');
         //  $image = $request->query('photo_url');
  
         //  // Проверяем, есть ли данные пользователя
@@ -28,7 +28,7 @@ class IndexController extends BaseController
         //          [
         //              'telegram_username' => $username,
         //              'name' => $name,
-        //              'last_name' => $lastName,
+        //              'last_name' => $last_name,
         //              'image' => $image,
         //          ]
         //      );
@@ -38,7 +38,7 @@ class IndexController extends BaseController
         //          'user_id' => $user->id, // Сохраняем ID пользователя в сессии
         //          'telegram_username' => $username,
         //          'first_name' => $name,
-        //          'last_name' => $lastName,
+        //          'last_name' => $last_name,
         //          'photo_url' => $image,
         //      ]);
         //  }
