@@ -1,4 +1,5 @@
 @extends('layouts.bot')
+@section('title', 'О сайте MOBUX')
 @section('content')
         <section class="antialiased p-6">
             <div class="mx-auto px-4 2xl:px-0">

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Скидки, промокоды и кэшбек - MOBUX')
 @section('content')
 <header class="py-6 bg-[#1b1a20]">
     <div class="container mx-auto flex justify-between items-center">

@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 
 class ShowController extends BaseController
 {
-    public function __invoke(Card $card)
+    public function __invoke($id)
     {
-        // $promocode = $card->promocodes()->first();
-        // $date = Carbon::parse($promocode->expiration_date); 
-        return view('bot.card.show', compact('card'));
+        $card = Card::findOrFail($id);
+
+        $promocodeCount = $card->promocodes()->count();
+        $currentDate = Carbon::now();
+        $titleDate = $currentDate->translatedFormat('F Y'); 
+        return view('bot.card.show', compact('card', 'titleDate', 'promocodeCount'));
     }
 }

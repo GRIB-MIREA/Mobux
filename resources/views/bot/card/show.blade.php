@@ -1,11 +1,12 @@
 @extends('layouts.bot')
+@section('title', 'Промокоды на скидку ' . $card->title . ' за ' . $titleDate . ' | MOBUX')
 @section('content')
         <section class="antialiased p-6">
             <div class="flex flex-col mx-auto px-4 2xl:px-0">
               <div class="flex flex-row items-center">
                 <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="w-36 h-36 object-cover p-4 rounded-full">
                 <div class="flex flex-col items-start space-y-2">
-                  <h1 class="text-xl font-semibold text-gray-100 sm:text-2xl">{{$card->title}}</h1>
+                  <h1 class="text-2xl font-semibold text-gray-100">{{$card->title}}</h1>
                   @foreach ($card->stamps as $stamp)
                       <div class="flex flex-row space-x-2">
                         <div class="bg-gray-200 lg:px-1 lg:py-1 px-2 py-2 rounded-full">
@@ -15,7 +16,8 @@
                         </div>
                         <div class="flex items-center text-gray-200 font-normal lg:text-md text-xs">{{$stamp->title}}</div>
                       </div>
-                  @endforeach 
+                  @endforeach
+                  <p class="text-gray-100 text-sm">Промокодов доступно: {{$promocodeCount}}</p> 
                 </div>   
               </div>
               <div class="px-4 py-2 text-white">{{$card->description}}</div>
