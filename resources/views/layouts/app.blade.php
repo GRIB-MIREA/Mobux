@@ -14,6 +14,7 @@
     <meta name="perfluence-verification" content="dac522971c71" />
     <meta name="apple-mobile-web-app-title" content="MOBUX" />
     <meta name="verify-admitad" content="18fa1da877" />
+    <meta name="regru-verification" content="e5e8cccc6583ff1eb8d8757e23dd4ccafc45ebd70c345d96aea1901a73a1db25" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
