@@ -46,11 +46,17 @@
                   </div>
                 </div>
                 <p class="mt-8 text-center text-2xl font-semibold">Наши социальные сети:</p>
-                <div class="flex justify-center items-center mt-4">
+                <div class="flex flex-col justify-center items-center mt-4">
                   <a href="https://t.me/m0bux" target="_blank" class="flex items-center w-1/10 bg-sky-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-sky-700 transition duration-300">
                     <i class="fab fa-telegram fa-2x mr-4"></i>
                     Наш канал в телеграм
                   </a>
+                  <div class="mt-4">
+                    <span>
+                      Разработка сайта и приложения:
+                      <a href="https://t.me/dlitvinoff" target="_blank" class="text-yellow-300 hover:text-yellow-500">Litvinoff</a>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
