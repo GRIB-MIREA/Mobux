@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>@yield('title', 'Default Title')</title>
+    <title>@yield('title', 'MOBUX')</title>
     <meta property="og:url" content="https://mobux.ru">
     <meta property="og:title" content="Скидки, промокоды и кэшбек - MOBUX">
     <meta property="og:description" content="MOBUX — ваш надежный помощник в мире выгодных покупок! Мы собрали для вас лучшие предложения и промокоды от популярных магазинов и брендов, чтобы вы могли экономить на своих покупках и наслаждаться шопингом без лишних затрат.">
