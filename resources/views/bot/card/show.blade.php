@@ -57,7 +57,7 @@
                       </button>
                     </div>
                   </div>
-                  <div class="inline-block rounded bg-yellow-300 px-6 pb-2 pt-2.5 mt-4 text-md text-center font-medium uppercase leading-normal shadow-md shadow-yellow-300/50 transition duration-150 ease-in-out hover:bg-yellow-500 hover:shadow-yellow-500 focus:bg-yellow-600 focus:shadow-yellow-600 focus:outline-none focus:ring-0 active:bg-yellow-600 active:shadow-yellow-600">
+                  <div class="inline-block rounded bg-yellow-300 px-6 pb-2 pt-2.5 mt-4 text-md text-center font-medium uppercase leading-normal shadow-md shadow-yellow-300/50 transition duration-150 ease-in-out hover:bg-yellow-400 hover:shadow-yellow-400 focus:bg-yellow-500 focus:shadow-yellow-500 focus:outline-none focus:ring-0 active:bg-yellow-500 active:shadow-yellow-500">
                     <a href="{{$promocode->link}}" target="_blank" class="text-black">Перейти на сайт</a>
                   </div>  
               </div>
