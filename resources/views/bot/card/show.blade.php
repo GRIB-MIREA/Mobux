@@ -24,7 +24,7 @@
                 <span>{{truncate_text($card->description, 10)}}</span>
                 <a href="#" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="text-gray-400 underline hover:no-underline hover:text-yellow-300">Показать полностью</a>
               </div>
-              <div id="popup-modal" tabindex="-1" class="hidden fixed inset-0 z-50 flex justify-center items-center">
+              <div id="popup-modal" tabindex="-1" class="fixed inset-0 z-50 flex justify-center items-center hidden">
                 <div class="relative p-4 w-full max-w-md max-h-full">
                     <div class="relative rounded-lg shadow bg-zinc-800">
                         <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center hover:bg-gray-600 hover:text-white" data-modal-hide="popup-modal">
