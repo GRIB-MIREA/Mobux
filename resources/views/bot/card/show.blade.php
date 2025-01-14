@@ -20,9 +20,9 @@
                   <p class="text-gray-100 text-sm">Промокодов доступно: {{$promocodeCount}}</p> 
                 </div>   
               </div>
-              <div class="px-4 py-2 text-white">
+              <div class="px-4 py-2 text-gray-200">
                 <span>{{truncate_text($card->description, 10)}}</span>
-                <a href="#" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="underline hover:no-underline hover:text-yellow-300">Показать полностью</a>
+                <a href="#" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="text-gray-400 underline hover:no-underline hover:text-yellow-300">Показать полностью</a>
               </div>
               <div id="popup-modal" tabindex="-1" class="hidden fixed inset-0 z-50 flex justify-center items-center">
                 <div class="relative p-4 w-full max-w-md max-h-full">
