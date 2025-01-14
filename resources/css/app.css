@@ -2,3 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 @import 'tw-elements/dist/css/index.min.css';
+@import 'flowbite';
