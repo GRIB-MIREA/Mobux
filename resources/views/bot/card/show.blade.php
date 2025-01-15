@@ -110,8 +110,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Проверяем, доступен ли объект Telegram.WebApp
             if (Telegram.WebApp) {
-                // Устанавливаем параметры видимости кнопки "Назад"
-                Telegram.WebApp.BackButton.setParams({ is_visible: true });
+                // Устанавливаем видимость кнопки "Назад"
+                Telegram.WebApp.BackButton.isVisible = true;
 
                 // Устанавливаем обработчик события нажатия на кнопку "Назад"
                 Telegram.WebApp.BackButton.onClick(function() {
