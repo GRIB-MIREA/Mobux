@@ -27,18 +27,6 @@
 
     <!-- Scripts -->
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
-    <script>
-        if (Telegram.WebApp) {
-            // Приложение запущено как MiniApp
-            console.log('MiniApp: приложение работает внутри Telegram!');
-            // Доступ к функциям WebApp
-            Telegram.WebApp.init();
-            Telegram.WebApp.setBackButton({ text: 'Назад' });  // Установка кнопки "Назад"
-        } else {
-            // Приложение работает как обычная веб-страница
-            console.log('Обычная веб-страница');
-        }
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
@@ -111,6 +99,25 @@
             </a>
         </div>
     </div>
+    <script>
+        // Убедитесь, что WebApp загружен
+        window.addEventListener('load', function() {
+            if (window.Telegram && window.Telegram.WebApp) {
+                // Инициализация Telegram WebApp
+                Telegram.WebApp.init();
+                
+                // Устанавливаем кнопку "Назад"
+                Telegram.WebApp.setBackButton({ text: "Назад" });
+                
+                // Обработчик события нажатия на кнопку "Назад"
+                Telegram.WebApp.onEvent('backPressed', function() {
+                    window.history.back();  // Возвращаемся на предыдущую страницу
+                });
+            } else {
+                console.error('WebApp API не доступен. Убедитесь, что приложение работает внутри Telegram.');
+            }
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.js"></script>
 </body>
