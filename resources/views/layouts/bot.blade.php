@@ -103,24 +103,22 @@
         window.addEventListener('load', function() {
             if (window.Telegram && window.Telegram.WebApp) {
                 console.log(Telegram.WebApp);
-                Telegram.WebApp.init();
+                document.addEventListener('DOMContentLoaded', function() {
+                // Проверяем, доступен ли объект BackButton
+                if (Telegram.WebApp && Telegram.WebApp.BackButton) {
+                    // Делаем кнопку "Назад" видимой
+                    Telegram.WebApp.BackButton.show();
 
-                // Настройка кнопки "Назад"
-                Telegram.WebApp.onEvent('web_app_setup_back_button', function() {
-                    // Настройка видимости кнопки "Назад"
-                    Telegram.WebApp.sendData(JSON.stringify({
-                        eventType: 'web_app_setup_back_button',
-                        eventData: {
-                            is_visible: true  // Устанавливаем кнопку как видимую
-                        }
-                    }));
-                });
-
-                // Устанавливаем событие нажатия кнопки "Назад"
-                Telegram.WebApp.onEvent('backPressed', function() {
-                    // Логика при нажатии на кнопку "Назад"
-                    window.history.back();  // Например, возвращаемся назад в браузере
-                });
+                    // Опционально, можете установить обработчик события нажатия на кнопку "Назад"
+                    Telegram.WebApp.BackButton.onClick(function() {
+                        // Действие, которое будет выполнено при нажатии на кнопку "Назад"
+                        console.log("Кнопка 'Назад' нажата");
+                        // Например, вы можете закрыть текущее окно или перейти на предыдущую страницу
+                    });
+                } else {
+                    console.error("BackButton не доступен");
+                }
+            });
 
             } else {
                 console.error('WebApp API не доступен. Убедитесь, что приложение работает внутри Telegram.');
