@@ -28,4 +28,15 @@
                 background-image: linear-gradient(to right, #3a372d, #3a372d);
             }
         </style>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              // Проверяем, доступен ли объект Telegram.WebApp
+              if (Telegram.WebApp) {
+                  // Устанавливаем видимость кнопки "Назад"
+                  Telegram.WebApp.BackButton.isVisible = false;
+              } else {
+                  console.error("Telegram.WebApp не доступен");
+              }
+          });
+      </script>
 @endsection
