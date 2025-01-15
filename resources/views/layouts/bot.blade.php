@@ -107,7 +107,7 @@
                 // Проверяем, доступен ли объект BackButton
                 if (Telegram.WebApp && Telegram.WebApp.BackButton) {
                     // Делаем кнопку "Назад" видимой
-                    Telegram.WebApp.BackButton.show();
+                    Telegram.WebApp.BackButton.isVisible = true;
 
                     // Опционально, можете установить обработчик события нажатия на кнопку "Назад"
                     Telegram.WebApp.BackButton.onClick(function() {
