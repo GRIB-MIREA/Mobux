@@ -32,26 +32,6 @@
         data-radius="10" 
         data-auth-url="https://mobux.ru/auth/telegram" 
         data-request-access="write"></script>
-        <script>
-            const backButton = Telegram.WebApp.BackButton;
-        
-            // Показывать кнопку только если есть GET параметры 
-        // Показывать кнопку только если есть параметры 
-        // и страница не главная
-        if (window.location.search && window.location.pathname !== '/bot') {
-        
-          backButton.show();
-        
-        } else {
-        
-          backButton.hide(); 
-        
-        }
-        backButton.onClick(() => {
-              history.back();
-            });
-        
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
