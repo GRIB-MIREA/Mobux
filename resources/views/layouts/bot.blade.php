@@ -106,5 +106,15 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.js"></script>
+    <script>
+        const data = JSON.stringify({
+        eventType: 'web_app_setup_back_button',
+        eventData: {
+            is_visible: true, // Установите в true, чтобы сделать кнопку видимой
+        },
+        });
+        // Отправьте сообщение родительскому окну
+        window.parent.postMessage(data, 'https://web.telegram.org');
+    </script>
 </body>
 </html>
