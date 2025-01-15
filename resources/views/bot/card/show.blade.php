@@ -107,4 +107,25 @@
             });
         });
       </script>
+      <script>
+        // Убедитесь, что вы инициализировали WebApp
+        const WebApp = window.Telegram.WebApp;
+
+        // Обработчик события нажатия кнопки "Назад"
+        WebApp.onBackButtonClicked = function() {
+            console.log("Кнопка 'Назад' нажата");
+            window.history.back(); // Вернуться на предыдущий экран
+        };
+
+        // Установите видимость кнопки "Назад"
+        const data = JSON.stringify({
+            eventType: 'web_app_setup_back_button',
+            eventData: {
+                is_visible: true, // Установите в true, чтобы сделать кнопку видимой
+            },
+        });
+
+        // Отправьте сообщение родительскому окну
+        window.parent.postMessage(data, '*');
+    </script>
 @endsection
