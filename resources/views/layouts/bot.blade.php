@@ -102,7 +102,7 @@
     <script>
         window.addEventListener('load', function() {
             if (window.Telegram && window.Telegram.WebApp) {
-                // Инициализация WebApp
+                console.log(Telegram.WebApp);
                 Telegram.WebApp.init();
 
                 // Настройка кнопки "Назад"
