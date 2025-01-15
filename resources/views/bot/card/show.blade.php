@@ -107,20 +107,4 @@
             });
         });
       </script>
-      <script>
-        // Установите видимость кнопки "Назад"
-        const data = JSON.stringify({
-            eventType: 'web_app_setup_back_button',
-            eventData: {
-                is_visible: true, // Установите в true, чтобы сделать кнопку видимой
-            },
-        });
-
-        window.parent.postMessage(data, 'https://web.telegram.org');
-
-        // Обработчик события для кнопки "Назад"
-        document.getElementById('backButton').addEventListener('click', function() {
-            window.history.back(); // Вернуться на предыдущую страницу
-        });
-      </script>
 @endsection

@@ -33,6 +33,27 @@
         data-auth-url="https://mobux.ru/auth/telegram" 
         data-request-access="write"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Убедитесь, что вы инициализировали WebApp
+        const WebApp = window.Telegram.WebApp;
+
+        // Обработчик события нажатия кнопки "Назад"
+        WebApp.onBackButtonClicked = function() {
+            console.log("Кнопка 'Назад' нажата");
+            window.history.back(); // Вернуться на предыдущий экран
+        };
+
+        // Установите видимость кнопки "Назад"
+        const data = JSON.stringify({
+            eventType: 'web_app_setup_back_button',
+            eventData: {
+                is_visible: true, // Установите в true, чтобы сделать кнопку видимой
+            },
+        });
+
+        // Отправьте сообщение родительскому окну
+        window.parent.postMessage(data, '*');
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <!-- Yandex.Metrika counter -->
