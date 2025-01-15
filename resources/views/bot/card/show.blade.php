@@ -1,6 +1,7 @@
 @extends('layouts.bot')
 @section('title', 'Промокоды на скидку ' . $card->title . ' за ' . $titleDate . ' | MOBUX')
 @section('content')
+        <button id="backButton">Назад</button>
         <section class="antialiased p-6">
             <div class="flex flex-col mx-auto px-4 2xl:px-0">
               <div class="flex flex-row items-center">
@@ -104,6 +105,22 @@
                 
                 modal.classList.add('hidden');
             });
+        });
+      </script>
+      <script>
+        // Установите видимость кнопки "Назад"
+        const data = JSON.stringify({
+            eventType: 'web_app_setup_back_button',
+            eventData: {
+                is_visible: true, // Установите в true, чтобы сделать кнопку видимой
+            },
+        });
+
+        window.parent.postMessage(data, 'https://web.telegram.org');
+
+        // Обработчик события для кнопки "Назад"
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.history.back(); // Вернуться на предыдущую страницу
         });
       </script>
 @endsection
