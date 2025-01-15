@@ -99,24 +99,7 @@
             </a>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Проверяем, доступен ли объект Telegram.WebApp
-            if (Telegram.WebApp) {
-                // Устанавливаем параметры видимости кнопки "Назад"
-                Telegram.WebApp.BackButton.setParams({ is_visible: true });
-
-                // Устанавливаем обработчик события нажатия на кнопку "Назад"
-                Telegram.WebApp.BackButton.onClick(function() {
-                    console.log("Кнопка 'Назад' нажата");
-                    // Здесь можно добавить логику для обработки нажатия на кнопку
-                });
-            } else {
-                console.error("Telegram.WebApp не доступен");
-            }
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.js"></>
 </body>
 </html>
