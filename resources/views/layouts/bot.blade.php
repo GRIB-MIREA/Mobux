@@ -100,25 +100,28 @@
         </div>
     </div>
     <script>
-        // Убедитесь, что WebApp загружен
         window.addEventListener('load', function() {
             if (window.Telegram && window.Telegram.WebApp) {
-                // Инициализация Telegram WebApp
+                // Инициализация WebApp
                 Telegram.WebApp.init();
-                const data = JSON.stringify({
-                    eventType: 'web_app_setup_back_button',
-                    eventData: {
-                        is_visible: true,
-                    },
+
+                // Настройка кнопки "Назад"
+                Telegram.WebApp.onEvent('web_app_setup_back_button', function() {
+                    // Настройка видимости кнопки "Назад"
+                    Telegram.WebApp.sendData(JSON.stringify({
+                        eventType: 'web_app_setup_back_button',
+                        eventData: {
+                            is_visible: true  // Устанавливаем кнопку как видимую
+                        }
+                    }));
                 });
-                
-                // Устанавливаем кнопку "Назад"
-                Telegram.WebApp.setBackButton({ text: "Назад" });
-                
-                // Обработчик события нажатия на кнопку "Назад"
+
+                // Устанавливаем событие нажатия кнопки "Назад"
                 Telegram.WebApp.onEvent('backPressed', function() {
-                    window.history.back();  // Возвращаемся на предыдущую страницу
+                    // Логика при нажатии на кнопку "Назад"
+                    window.history.back();  // Например, возвращаемся назад в браузере
                 });
+
             } else {
                 console.error('WebApp API не доступен. Убедитесь, что приложение работает внутри Telegram.');
             }
