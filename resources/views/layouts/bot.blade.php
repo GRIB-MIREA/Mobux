@@ -100,28 +100,19 @@
         </div>
     </div>
     <script>
-        window.addEventListener('load', function() {
-            if (window.Telegram && window.Telegram.WebApp) {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверяем, доступен ли объект BackButton
+            if (Telegram.WebApp && Telegram.WebApp.BackButton) {
+                // Устанавливаем isVisible в true, чтобы сделать кнопку "Назад" видимой
+                Telegram.WebApp.BackButton.isVisible = true;
                 console.log(Telegram.WebApp);
-                document.addEventListener('DOMContentLoaded', function() {
-                // Проверяем, доступен ли объект BackButton
-                if (Telegram.WebApp && Telegram.WebApp.BackButton) {
-                    // Делаем кнопку "Назад" видимой
-                    Telegram.WebApp.BackButton.isVisible = true;
-
-                    // Опционально, можете установить обработчик события нажатия на кнопку "Назад"
-                    Telegram.WebApp.BackButton.onClick(function() {
-                        // Действие, которое будет выполнено при нажатии на кнопку "Назад"
-                        console.log("Кнопка 'Назад' нажата");
-                        // Например, вы можете закрыть текущее окно или перейти на предыдущую страницу
-                    });
-                } else {
-                    console.error("BackButton не доступен");
-                }
-            });
-
+                // Устанавливаем обработчик события нажатия на кнопку "Назад"
+                Telegram.WebApp.BackButton.onClick(function() {
+                    console.log("Кнопка 'Назад' нажата");
+                    // Здесь можно добавить логику для обработки нажатия на кнопку
+                });
             } else {
-                console.error('WebApp API не доступен. Убедитесь, что приложение работает внутри Telegram.');
+                console.error("BackButton не доступен");
             }
         });
     </script>
