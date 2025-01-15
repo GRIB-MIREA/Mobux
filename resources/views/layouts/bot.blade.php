@@ -101,18 +101,18 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Проверяем, доступен ли объект BackButton
-            if (Telegram.WebApp && Telegram.WebApp.BackButton) {
-                // Устанавливаем isVisible в true, чтобы сделать кнопку "Назад" видимой
-                Telegram.WebApp.BackButton.isVisible = true;
-                console.log(Telegram.WebApp);
+            // Проверяем, доступен ли объект Telegram.WebApp
+            if (Telegram.WebApp) {
+                // Устанавливаем параметры видимости кнопки "Назад"
+                Telegram.WebApp.BackButton.setParams({ is_visible: true });
+
                 // Устанавливаем обработчик события нажатия на кнопку "Назад"
                 Telegram.WebApp.BackButton.onClick(function() {
                     console.log("Кнопка 'Назад' нажата");
                     // Здесь можно добавить логику для обработки нажатия на кнопку
                 });
             } else {
-                console.error("BackButton не доступен");
+                console.error("Telegram.WebApp не доступен");
             }
         });
     </script>
