@@ -6,7 +6,7 @@
               <div class="flex flex-row items-center">
                 <img src="{{url('storage/' . $card->image)}}" alt="Логотип магазина 1" class="lg:w-36 lg:h-36 w-24 h-24 object-cover p-4 rounded-full">
                 <div class="flex flex-col items-start space-y-2">
-                  <h1 class="text-2xl font-semibold text-gray-100">{{$card->title}}</h1>
+                  <h1 class="lg:text-2xl text-xl font-semibold text-gray-100">{{$card->title}}</h1>
                   @foreach ($card->stamps as $stamp)
                       <div class="flex flex-row space-x-2">
                         <div class="bg-gray-200 lg:px-1 lg:py-1 px-2 py-2 rounded-full">
