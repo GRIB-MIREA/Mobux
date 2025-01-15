@@ -106,13 +106,4 @@
             });
         });
       </script>
-      <script src="https://web.telegram.org/js/telegram-web-app.js"></script>
-      <script>
-          Telegram.WebApp.onEvent('backPressed', function() {
-              window.history.back();  // Возвращаемся назад
-          });
-  
-          Telegram.WebApp.init();
-          Telegram.WebApp.setBackButton({ text: "Назад" });  // Устанавливаем кнопку назад
-      </script>
 @endsection
