@@ -28,12 +28,16 @@
     <!-- Scripts -->
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <script>
-        Telegram.WebApp.onEvent('backPressed', function() {
-            window.history.back();  // Возвращаемся назад
-        });
-
-        Telegram.WebApp.init();
-        Telegram.WebApp.setBackButton({ text: "Назад" });  // Устанавливаем кнопку назад
+        if (Telegram.WebApp) {
+            // Приложение запущено как MiniApp
+            console.log('MiniApp: приложение работает внутри Telegram!');
+            // Доступ к функциям WebApp
+            Telegram.WebApp.init();
+            Telegram.WebApp.setBackButton({ text: 'Назад' });  // Установка кнопки "Назад"
+        } else {
+            // Приложение работает как обычная веб-страница
+            console.log('Обычная веб-страница');
+        }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
