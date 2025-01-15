@@ -105,6 +105,12 @@
             if (window.Telegram && window.Telegram.WebApp) {
                 // Инициализация Telegram WebApp
                 Telegram.WebApp.init();
+                const data = JSON.stringify({
+                    eventType: 'web_app_setup_back_button',
+                    eventData: {
+                        is_visible: true,
+                    },
+                });
                 
                 // Устанавливаем кнопку "Назад"
                 Telegram.WebApp.setBackButton({ text: "Назад" });
