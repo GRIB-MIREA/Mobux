@@ -115,8 +115,7 @@
 
                 // Устанавливаем обработчик события нажатия на кнопку "Назад"
                 Telegram.WebApp.BackButton.onClick(function() {
-                    console.log("Кнопка 'Назад' нажата");
-                    // Здесь можно добавить логику для обработки нажатия на кнопку
+                  window.history.back();
                 });
             } else {
                 console.error("Telegram.WebApp не доступен");
