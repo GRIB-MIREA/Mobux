@@ -36,4 +36,20 @@
   </div>
   @endforeach
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Проверяем, доступен ли объект Telegram.WebApp
+        if (Telegram.WebApp) {
+            // Устанавливаем видимость кнопки "Назад"
+            Telegram.WebApp.BackButton.isVisible = true;
+
+            // Устанавливаем обработчик события нажатия на кнопку "Назад"
+            Telegram.WebApp.BackButton.onClick(function() {
+              window.history.back();
+            });
+        } else {
+            console.error("Telegram.WebApp не доступен");
+        }
+    });
+</script>
 @endsection
