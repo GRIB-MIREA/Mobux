@@ -26,8 +26,7 @@ class CreateController extends Controller
         $recipientsCount = $recipients->count();
 
         $message = $request->input('message');
-        $cleanedMessage = strip_tags($message);
-        $cleanedMessage = $this->convertToTelegramFormat($cleanedMessage);
+        $cleanedMessage = $this->convertToTelegramFormat($message);
 
         // Запускаем команду Artisan
         Artisan::call('telegram:send', ['message' => $cleanedMessage]);
