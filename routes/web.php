@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Admin\Mailing\CreateController;
 use App\Http\Controllers\Bot\IndexController;
 use App\Http\Middleware\TelegramRequest;
 use Illuminate\Support\Facades\Cache;
@@ -94,6 +95,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/{stamp}/edit', 'EditController')->name('admin.stamp.edit');
         Route::patch('/{stamp}', 'UpdateController')->name('admin.stamp.update');
         Route::delete('/{stamp}', 'DeleteController')->name('admin.stamp.delete');
+    });
+    Route::group(['namespace' => 'Mailing', 'prefix' => 'mails'], function () {
+        Route::get('/', 'IndexController')->name('admin.mail.index');
+        Route::get('/create', 'CreateController')->name('admin.mail.create');
+        Route::post('/', 'StoreController')->name('admin.mail.store');
+        Route::post('/', [CreateController::class, 'sendMessage'])->name('admin.mail.send');
     });
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 });

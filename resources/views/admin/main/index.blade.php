@@ -45,7 +45,7 @@
               <p>Категорий в боте</p>
             </div>
             <div class="icon">
-              <i class="fas fa-comments"></i>
+              <i class="fas fa-toggle-on"></i>
             </div>
             <a href="{{route('admin.category.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
           </div>
