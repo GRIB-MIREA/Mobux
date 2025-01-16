@@ -42,7 +42,7 @@ class CreateController extends Controller
 
     public function convertToTelegramFormat($text) {
         // Пример преобразования: заменяем HTML-теги на Markdown
-        $text = preg_replace('/<b>(.*?)<\/b>/', '*\$1*', $text); // Жирный текст
+        $text = preg_replace('/<(strong|b)>(.*?)<\/(strong|b)>/i', '*\$2*', $text); // Жирный текст
         $text = preg_replace('/<em>(.*?)<\/em>/', '_\$1_', $text); // Курсивный текст
         $text = preg_replace('/<u>(.*?)<\/u>/', '__\$1__', $text); // Подчеркнутый текст
         $text = preg_replace('/<br\s*\/?>/i', "\n", $text); // Переносы строк
