@@ -26,13 +26,14 @@ class CreateController extends Controller
         $recipientsCount = $recipients->count();
 
         $message = $request->input('message');
+        $escapedMessage = htmlspecialchars($message);
 
         // Запускаем команду Artisan
-        Artisan::call('telegram:send', ['message' => $message]);
+        Artisan::call('telegram:send', ['message' => $escapedMessage]);
 
         // Сохраняем информацию об истории рассылки
         MailingHistory::create([
-            'message' => $message,
+            'message' => $escapedMessage,
             'recipients_count' => $recipientsCount,
         ]);
 

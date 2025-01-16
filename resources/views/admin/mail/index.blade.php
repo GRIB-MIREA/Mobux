@@ -40,7 +40,7 @@
                   @foreach ($mailing_histories as $mailing_history)
                     <tr>
                       <td>{{ $mailing_history->id }}</td>
-                      <td>{{ $mailing_history->message }}</td>
+                      <td>{!! $mailing_history->message !!}</td>
                       <td>{{ $mailing_history->recipients_count }}</td>
                       <td>{{ $mailing_history->created_at }}</td>
                     </tr>
