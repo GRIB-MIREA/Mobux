@@ -29,7 +29,7 @@ class CreateController extends Controller
         $cleanedMessage = $this->convertToTelegramFormat($message);
 
         // Запускаем команду Artisan
-        Artisan::call('telegram:send', ['message' => $cleanedMessage]);
+        Artisan::call('telegram:send', ['message' => $cleanedMessage, 'parse_mode' => 'Markdown']);
 
         // Сохраняем информацию об истории рассылки
         MailingHistory::create([
@@ -40,16 +40,19 @@ class CreateController extends Controller
         return redirect()->route('admin.mail.index')->with('success', 'Сообщение отправлено всем пользователям!');
     }
 
-    public function convertToTelegramFormat($text) {
-        // Пример преобразования: заменяем HTML-теги на Markdown
-        $text = preg_replace('/<(strong|b)>(.*?)<\/(strong|b)>/i', '*\$2*', $text); // Жирный текст
-        $text = preg_replace('/<em>(.*?)<\/em>/', '_\$1_', $text); // Курсивный текст
-        $text = preg_replace('/<u>(.*?)<\/u>/', '__\$1__', $text); // Подчеркнутый текст
-        $text = preg_replace('/<br\s*\/?>/i', "\n", $text); // Переносы строк
-    
-        // Удаляем другие HTML-теги, если они есть
+    private function convertToTelegramFormat($text) {
+        // Заменяем <strong> и <b> на * (жирный текст)
+        $text = preg_replace('/<(strong|b)>(.*?)<\/(strong|b)>/is', '*\$2*', $text);
+        // Заменяем <em> на _ (курсивный текст)
+        $text = preg_replace('/<em>(.*?)<\/em>/is', '_\$1_', $text);
+        // Заменяем <u> на __ (подчеркнутый текст)
+        $text = preg_replace('/<u>(.*?)<\/u>/is', '__\$1__', $text);
+        // Заменяем <br> на перенос строки
+        $text = preg_replace('/<br\s*\/?>/is', "\n", $text);
+        // Удаляем все остальные HTML-теги
         $text = strip_tags($text);
     
+        // Возвращаем очищенный и отформатированный текст
         return $text;
     }
 }
