@@ -10,6 +10,7 @@ class EditController extends Controller
 {
     public function __invoke(Category $category)
     {
-        return view('admin.category.edit', compact('category'));
+        $notifications = auth()->user()->notifications;
+        return view('admin.category.edit', compact('category', 'notifications'));
     }
 }

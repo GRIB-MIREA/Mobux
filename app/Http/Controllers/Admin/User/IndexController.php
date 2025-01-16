@@ -10,7 +10,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $users = User::all();
-        return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users', 'notifications'));
     }
 }

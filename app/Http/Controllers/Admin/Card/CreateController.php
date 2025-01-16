@@ -11,8 +11,9 @@ class CreateController extends BaseController
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $categories = Category::all();
         $stamps = Stamp::all();
-        return view('admin.card.create', compact('categories', 'stamps'));
+        return view('admin.card.create', compact('categories', 'stamps', 'notifications'));
     }
 }

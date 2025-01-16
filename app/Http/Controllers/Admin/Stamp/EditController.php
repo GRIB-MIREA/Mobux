@@ -10,6 +10,7 @@ class EditController extends Controller
 {
     public function __invoke(Stamp $stamp)
     {
-        return view('admin.stamp.edit', compact('stamp'));
+        $notifications = auth()->user()->notifications;
+        return view('admin.stamp.edit', compact('stamp', 'notifications'));
     }
 }

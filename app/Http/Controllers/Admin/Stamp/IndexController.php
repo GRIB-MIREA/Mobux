@@ -10,7 +10,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $stamps = Stamp::all();
-        return view('admin.stamp.index', compact('stamps'));
+        return view('admin.stamp.index', compact('stamps', 'notifications'));
     }
 }

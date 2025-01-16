@@ -10,7 +10,8 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $cards = Card::all();
-        return view('admin.promocode.create', compact('cards'));
+        return view('admin.promocode.create', compact('cards', 'notifications'));
     }
 }

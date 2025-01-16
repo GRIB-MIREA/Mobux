@@ -11,7 +11,8 @@ class EditController extends Controller
 {
     public function __invoke(Promocode $promocode)
     {
+        $notifications = auth()->user()->notifications;
         $cards = Card::all();
-        return view('admin.promocode.edit', compact('promocode', 'cards'));
+        return view('admin.promocode.edit', compact('promocode', 'cards', 'notifications'));
     }
 }

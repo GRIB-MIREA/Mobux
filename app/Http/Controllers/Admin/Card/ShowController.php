@@ -10,6 +10,7 @@ class ShowController extends BaseController
 {
     public function __invoke(Card $card)
     {
-        return view('admin.card.show', compact('card'));
+        $notifications = auth()->user()->notifications;
+        return view('admin.card.show', compact('card', 'notifications'));
     }
 }

@@ -10,7 +10,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $categories = Category::orderBy('position', 'asc')->paginate(10);
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index', compact('categories', 'notifications'));
     }
 }

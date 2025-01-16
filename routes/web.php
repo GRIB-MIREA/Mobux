@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
@@ -94,6 +95,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::patch('/{stamp}', 'UpdateController')->name('admin.stamp.update');
         Route::delete('/{stamp}', 'DeleteController')->name('admin.stamp.delete');
     });
+    Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 });
 
 Auth::routes();

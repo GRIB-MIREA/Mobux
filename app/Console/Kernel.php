@@ -33,8 +33,6 @@ class Kernel extends ConsoleKernel
             // Например, вызов модели для удаления промокодов
             // Пример:
             Promocode::where('expiration_date', '<', now())->delete();
-            
-            $this->info('Истекшие промокоды успешно удалены!');
         })->describe('Удалить истекшие промокоды');
 
         require base_path('routes/console.php');

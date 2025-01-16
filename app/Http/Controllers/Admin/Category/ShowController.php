@@ -10,6 +10,7 @@ class ShowController extends Controller
 {
     public function __invoke(Category $category)
     {
-        return view('admin.category.show', compact('category'));
+        $notifications = auth()->user()->notifications;
+        return view('admin.category.show', compact('category', 'notifications'));
     }
 }

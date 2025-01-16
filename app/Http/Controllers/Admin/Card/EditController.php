@@ -12,9 +12,10 @@ class EditController extends BaseController
 {
     public function __invoke(Card $card)
     {
+        $notifications = auth()->user()->notifications;
         $categories = Category::all();
         $stamps = Stamp::all();
         $selectedStampIds = $card->stamps->pluck('id')->toArray();
-        return view('admin.card.edit', compact('card', 'categories', 'stamps', 'selectedStampIds'));
+        return view('admin.card.edit', compact('card', 'categories', 'stamps', 'selectedStampIds', 'notifications'));
     }
 }

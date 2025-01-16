@@ -10,7 +10,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $promocodes = Promocode::paginate(10);
-        return view('admin.promocode.index', compact('promocodes'));
+        return view('admin.promocode.index', compact('promocodes', 'notifications'));
     }
 }

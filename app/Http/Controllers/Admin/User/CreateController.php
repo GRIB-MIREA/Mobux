@@ -9,7 +9,8 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
+        $notifications = auth()->user()->notifications;
         $roles = User::getRoles();
-        return view('admin.user.create', compact('roles'));
+        return view('admin.user.create', compact('roles', 'notifications'));
     }
 }

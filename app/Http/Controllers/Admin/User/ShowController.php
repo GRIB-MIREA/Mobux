@@ -10,6 +10,7 @@ class ShowController extends Controller
 {
     public function __invoke(User $user)
     {
-        return view('admin.user.show', compact('user'));
+        $notifications = auth()->user()->notifications;
+        return view('admin.user.show', compact('user', 'notifications'));
     }
 }

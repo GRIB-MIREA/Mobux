@@ -9,6 +9,7 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        return view('admin.category.create');
+        $notifications = auth()->user()->notifications;
+        return view('admin.category.create', compact('notifications'));
     }
 }

@@ -2,9 +2,14 @@
 
 namespace App\Console\Commands;
 
+use App\Events\NotificationCreated;
 use Illuminate\Console\Command;
 use Carbon\Carbon;
 use App\Models\Promocode;
+use App\Models\User;
+use App\Notifications\ExpiredPromocodesDeleted;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 
 class DeleteExpiredPromocodes extends Command
 {
@@ -20,7 +25,7 @@ class DeleteExpiredPromocodes extends Command
      *
      * @var string
      */
-    protected $description = 'Удалить истекшие промокоды';
+    protected $description = 'Удаляет все истекшие промокоды';
 
     /**
      * Execute the console command.
@@ -29,7 +34,16 @@ class DeleteExpiredPromocodes extends Command
      */
     public function handle()
     {
-        $deleted = Promocode::where('expiration_date', '<', Carbon::now())->delete();
-        $this->info("Удалено промокодов: $deleted");
+        Log::info('DeleteExpiredPromocodes command started.');
+        $deletedPromocodes = Promocode::with('card')->where('expiration_date', '<', Carbon::now())->delete();
+
+        foreach ($deletedPromocodes as $promocode) {
+            $promocode->delete();
+        }
+
+        event(new NotificationCreated($deletedPromocodes));
+        Log::info('Expired promocodes deleted event triggered', $deletedPromocodes->toArray());
+
+        $this->info("Истекшие промокоды были удалены.");
     }
 }

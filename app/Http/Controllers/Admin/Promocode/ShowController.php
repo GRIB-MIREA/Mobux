@@ -10,6 +10,7 @@ class ShowController extends Controller
 {
     public function __invoke(Promocode $promocode)
     {
-        return view('admin.promocode.show', compact('promocode'));
+        $notifications = auth()->user()->notifications;
+        return view('admin.promocode.show', compact('promocode', 'notifications'));
     }
 }

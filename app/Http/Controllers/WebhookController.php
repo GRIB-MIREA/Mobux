@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TelegramUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -26,6 +27,7 @@ class WebhookController extends Controller
 
     private function sendStartMessage($chatId)
     {
+        $user = TelegramUser::firstOrCreate(['chat_id' => $chatId]);
         $token = env('TELEGRAM_BOT_TOKEN');
         $url = "https://api.telegram.org/bot"."$token"."/sendMessage";
 
