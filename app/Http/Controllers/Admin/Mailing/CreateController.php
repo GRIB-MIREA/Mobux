@@ -27,6 +27,7 @@ class CreateController extends Controller
 
         $message = $request->input('message');
         $cleanedMessage = strip_tags($message);
+        $cleanedMessage = $this->convertToTelegramFormat($cleanedMessage);
 
         // Запускаем команду Artisan
         Artisan::call('telegram:send', ['message' => $cleanedMessage]);
@@ -38,5 +39,18 @@ class CreateController extends Controller
         ]);
 
         return redirect()->route('admin.mail.index')->with('success', 'Сообщение отправлено всем пользователям!');
+    }
+
+    public function convertToTelegramFormat($text) {
+        // Пример преобразования: заменяем HTML-теги на Markdown
+        $text = preg_replace('/<b>(.*?)<\/b>/', '*\$1*', $text); // Жирный текст
+        $text = preg_replace('/<em>(.*?)<\/em>/', '_\$1_', $text); // Курсивный текст
+        $text = preg_replace('/<u>(.*?)<\/u>/', '__\$1__', $text); // Подчеркнутый текст
+        $text = preg_replace('/<br\s*\/?>/i', "\n", $text); // Переносы строк
+    
+        // Удаляем другие HTML-теги, если они есть
+        $text = strip_tags($text);
+    
+        return $text;
     }
 }
