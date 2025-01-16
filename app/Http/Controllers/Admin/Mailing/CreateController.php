@@ -19,7 +19,7 @@ class CreateController extends Controller
     public function sendMessage(Request $request)
     {
         $request->validate([
-            'message' => 'required|text|max:5000',
+            'message' => 'required|string|max:5000',
         ]);
 
         $recipients = TelegramUser::all();
