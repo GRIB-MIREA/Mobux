@@ -33,6 +33,7 @@
                     <th>ID</th>
                     <th>Текст рассылки</th>
                     <th>Количество получателей</th>
+                    <th>Дата рассылки</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@
                       <td>{{ $mailing_history->id }}</td>
                       <td>{{ $mailing_history->message }}</td>
                       <td>{{ $mailing_history->recipients_count }}</td>
+                      <td>{{ $mailing_history->created_at }}</td>
                     </tr>
                   @endforeach
                 </tbody>

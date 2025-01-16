@@ -10,5 +10,8 @@ class MailingHistory extends Model
     use HasFactory;
 
     protected $table = 'mailing_history';
-    protected $guarded = false;
+    protected $fillable = [
+        'message',
+        'recipients_count',
+    ];
 }

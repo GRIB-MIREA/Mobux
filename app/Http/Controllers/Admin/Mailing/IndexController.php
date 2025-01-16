@@ -11,7 +11,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         $notifications = auth()->user()->notifications;
-        $mailing_histories = MailingHistory::paginate(10);
+        $mailing_histories = MailingHistory::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.mail.index', compact('mailing_histories', 'notifications'));
     }
 }
