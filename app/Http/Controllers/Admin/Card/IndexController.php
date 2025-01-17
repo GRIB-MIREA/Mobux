@@ -11,7 +11,7 @@ class IndexController extends BaseController
     public function __invoke()
     {
         $notifications = auth()->user()->notifications;
-        $cards = Card::orderBy('position', 'asc')->paginate(10);
+        $cards = Card::withCount('promocodes')->orderBy('position', 'asc')->paginate(10);
         return view('admin.card.index', compact('cards', 'notifications'));
     }
 }

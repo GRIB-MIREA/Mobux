@@ -33,6 +33,7 @@
                     <th>ID</th>
                     <th>Название магазина</th>
                     <th>Позиция</th>
+                    <th>Количество промокодов</th>
                     <th>Категория</th>
                     <th colspan="3" class="text-center">Действия</th>
                   </tr>
@@ -43,6 +44,7 @@
                       <td>{{ $card->id }}</td>
                       <td>{{ $card->title }}</td>
                       <td>{{ $card->position }}</td>
+                      <td>{{ $card->promocodes->count() }}</td>
                       <td>{{ $card->category->title }}</td>
                       <td class="text-center">
                         <a href="{{route('admin.card.show', $card->id)}}"><i class="far fa-eye"></i></a>
