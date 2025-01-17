@@ -29,7 +29,7 @@ class CreateController extends Controller
         $cleanedMessage = strip_tags($message);
 
         // Запускаем команду Artisan
-        Artisan::call('telegram:send', ['message' => $cleanedMessage, 'parse_mode' => 'Markdown']);
+        Artisan::call('telegram:send', ['message' => $cleanedMessage]);
 
         // Сохраняем информацию об истории рассылки
         MailingHistory::create([
