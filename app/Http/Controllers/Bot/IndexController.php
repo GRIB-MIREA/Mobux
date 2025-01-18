@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Bot;
 
+use App\Models\Banner;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Card;
 use App\Models\User;
@@ -43,7 +44,8 @@ class IndexController extends BaseController
         //      ]);
         //  }
         Cache::forever('bot-data', $request->all());
+        $banners = Banner::all();
         $cards = Card::orderBy('position', 'asc')->with('stamps')->get();  
-        return view('bot.index', compact('cards'));
+        return view('bot.index', compact('cards', 'banners'));
     }
 }

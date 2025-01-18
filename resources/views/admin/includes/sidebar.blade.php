@@ -34,6 +34,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a href="{{ route('admin.banner.index') }}" class="nav-link">
+          <i class="nav-icon fas fa-image"></i>
+          <p>Баннеры</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="{{route('admin.mail.index')}}" class="nav-link">
           <i class="nav-icon fas fa-comment-dots"></i>
           <p>Рассылка</p>

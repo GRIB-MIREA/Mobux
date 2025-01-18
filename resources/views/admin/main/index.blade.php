@@ -49,6 +49,16 @@
             </div>
             <a href="{{route('admin.category.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
           </div>
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3>{{$data['telegramUserCount']}}</h3>
+              <p>Людей в рассылке</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-comment-dots"></i>
+            </div>
+            <a href="{{route('admin.mail.index')}}" class="small-box-footer">Смотреть все <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
         </div>
       </div>
       <!-- /.row -->

@@ -96,6 +96,15 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::patch('/{stamp}', 'UpdateController')->name('admin.stamp.update');
         Route::delete('/{stamp}', 'DeleteController')->name('admin.stamp.delete');
     });
+    Route::group(['namespace' => 'Banner', 'prefix' => 'banners'], function () {
+        Route::get('/', 'IndexController')->name('admin.banner.index');
+        Route::get('/create', 'CreateController')->name('admin.banner.create');
+        Route::post('/', 'StoreController')->name('admin.banner.store');
+        Route::get('/{banner}', 'ShowController')->name('admin.banner.show');
+        Route::get('/{banner}/edit', 'EditController')->name('admin.banner.edit');
+        Route::patch('/{banner}', 'UpdateController')->name('admin.banner.update');
+        Route::delete('/{banner}', 'DeleteController')->name('admin.banner.delete');
+    });
     Route::group(['namespace' => 'Mailing', 'prefix' => 'mails'], function () {
         Route::get('/', 'IndexController')->name('admin.mail.index');
         Route::get('/create', 'CreateController')->name('admin.mail.create');

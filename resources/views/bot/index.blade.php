@@ -1,6 +1,22 @@
 @extends('layouts.bot')
 @section('title', 'Скидки, промокоды и кэшбек - MOBUX')
 @section('content')
+    {{-- @if ($banners->isEmpty())
+        <div class="hidden"></div>
+    @else
+        <div class="flex overflow-hidden">
+        @foreach($banners as $banner)
+            <a href="{{ $banner->link }}" class="flex-shrink-0 w-full">
+                <img src="{{url('storage/' . $banner->image)}}" alt="Баннер" class="w-full h-auto">
+            </a>
+        </div>
+        @endforeach
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2 pb-2">
+                @foreach($banners as $index => $banner)
+                    <button class="w-3 h-3 bg-gray-800 rounded-full" data-te-slider-to="{{ $index }}"></button>
+                @endforeach
+            </div>   
+    @endif --}}
     @livewire('card-search')
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
         @foreach ($cards as $card)
