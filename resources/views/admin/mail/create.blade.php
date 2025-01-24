@@ -29,7 +29,7 @@
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
             </div>
-            <input type="submit" class="btn btn-primary" value="Добавить">
+            <input type="submit" class="btn btn-primary" value="Создать рассылку">
           </form>
         </div>
       </div>

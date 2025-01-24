@@ -22,6 +22,10 @@
         <div class="col-lg-1 col-3 mb-3">
           <a href="{{ route('admin.card.create') }}" class="btn btn-block btn-primary">Добавить</a>
         </div>
+        <form method="GET" action="{{ route('admin.card.index') }}" class="d-flex mb-4">
+          <input type="text" name="search" class="form-control me-2" placeholder="Поиск по названию" value="{{ request('search') }}">
+          <button type="submit" class="btn btn-primary mx-2">Поиск</button>
+        </form>
       </div>
       <div class="row">
         <div class="col-12">
@@ -32,8 +36,22 @@
                   <tr>
                     <th>ID</th>
                     <th>Название магазина</th>
-                    <th>Позиция</th>
-                    <th>Количество промокодов</th>
+                    <th>
+                      <a href="{{ route('admin.card.index', ['sort_by' => 'position', 'sort_direction' => $sortDirection === 'asc' ? 'desc' : 'asc']) }}">
+                        Позиция
+                        @if ($sortBy === 'position')
+                          <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                        @endif
+                      </a>
+                    </th>
+                    <th>
+                      <a href="{{ route('admin.card.index', ['sort_by' => 'promocodes_count', 'sort_direction' => $sortDirection === 'asc' ? 'desc' : 'asc']) }}">
+                        Промокоды
+                        @if ($sortBy === 'promocodes_count')
+                          <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
+                        @endif
+                      </a>
+                    </th>
                     <th>Категория</th>
                     <th colspan="3" class="text-center">Действия</th>
                   </tr>

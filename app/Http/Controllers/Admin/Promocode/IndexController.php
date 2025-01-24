@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         $notifications = auth()->user()->notifications;
-        $promocodes = Promocode::paginate(10);
-        return view('admin.promocode.index', compact('promocodes', 'notifications'));
+
+        $search = $request->input('search');
+        $query = Promocode::query();
+
+        if ($search) {
+            $query->where('title', 'LIKE', "%{$search}%");
+        }
+
+        $promocodes = $query->paginate(10);
+        return view('admin.promocode.index', compact('promocodes', 'search', 'notifications'));
     }
 }
