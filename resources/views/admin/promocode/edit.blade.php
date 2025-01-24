@@ -50,7 +50,7 @@
               </select>
             </div>
             <div class="form-group">
-              <input type="date" class="form-control" name="expiration_date" placeholder="Срок действия" value="{{$card->expiration_date}}">
+              <input type="date" class="form-control" name="expiration_date" placeholder="Срок действия" value="{{$promocode->expiration_date}}">
               @error('expiration_date')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
