@@ -16,7 +16,14 @@ class IndexController extends Controller
         $query = Promocode::query();
 
         if ($search) {
-            $query->where('title', 'LIKE', "%{$search}%");
+            $query->where(function($q) use ($search) {
+                // Поиск по title в таблице promocodes
+                $q->where('title', 'LIKE', "%{$search}%")
+                  // Или поиск по title в связанных таблицах cards
+                  ->orWhereHas('card', function($q) use ($search) {
+                      $q->where('title', 'LIKE', "%{$search}%");
+                  });
+            });
         }
 
         $promocodes = $query->paginate(10);

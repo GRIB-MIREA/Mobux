@@ -22,6 +22,10 @@
         <div class="col-lg-1 col-3 mb-3">
           <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Добавить</a>
         </div>
+        <form method="GET" action="{{ route('admin.category.index') }}" class="d-flex mb-4">
+          <input type="text" name="search" class="form-control me-2" placeholder="Поиск по названию" value="{{ request('search') }}">
+          <button type="submit" class="btn btn-primary mx-2">Поиск</button>
+        </form>
       </div>
       <div class="row">
         <div class="col-12">

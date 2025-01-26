@@ -23,7 +23,7 @@
           <a href="{{ route('admin.promocode.create') }}" class="btn btn-block btn-primary">Добавить</a>
         </div>
         <form method="GET" action="{{ route('admin.promocode.index') }}" class="d-flex mb-4">
-          <input type="text" name="search" class="form-control me-2" placeholder="Поиск по названию" value="{{ request('search') }}">
+          <input type="text" name="search" class="form-control me-2" placeholder="Поиск" value="{{ request('search') }}">
           <button type="submit" class="btn btn-primary mx-2">Поиск</button>
         </form>
       </div>
