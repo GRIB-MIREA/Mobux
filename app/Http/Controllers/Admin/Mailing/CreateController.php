@@ -20,13 +20,34 @@ class CreateController extends Controller
     {
         $request->validate([
             'message' => 'required|string|max:5000',
+            'test' => 'nullable|boolean',
         ]);
+
+        $message = $request->input('message');
+        $cleanedMessage = strip_tags($message);
+
+        if ($request->input('test')) {
+            // Укажите Telegram ID администратора для тестовой рассылки
+            $adminTelegramId = '299814741'; // Замените на реальный ID администратора
+    
+            // Отправляем сообщение только администратору
+            Artisan::call('telegram:send', [
+                'message' => $cleanedMessage,
+                'user_id' => $adminTelegramId, // Передаем ID администратора в команду
+            ]);
+    
+            // Сохраняем информацию об истории рассылки только для теста
+            MailingHistory::create([
+                'message' => $cleanedMessage,
+                'recipients_count' => 1, // Один получатель
+            ]);
+    
+            return redirect()->route('admin.mail.index')->with('success', 'Тестовое сообщение отправлено администратору!');
+        }
 
         $recipients = TelegramUser::all();
         $recipientsCount = $recipients->count();
 
-        $message = $request->input('message');
-        $cleanedMessage = strip_tags($message);
 
         // Запускаем команду Artisan
         Artisan::call('telegram:send', ['message' => $cleanedMessage]);

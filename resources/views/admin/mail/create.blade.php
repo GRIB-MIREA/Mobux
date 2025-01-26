@@ -29,6 +29,12 @@
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
             </div>
+            <div class="form-group">
+              <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="test" name="test" value="1">
+                  <label class="form-check-label" for="test">Отправить как тестовое сообщение</label>
+              </div>
+            </div>
             <input type="submit" class="btn btn-primary" value="Создать рассылку">
           </form>
         </div>
