@@ -17,6 +17,10 @@ class CardService
             $stampIds = $data['stamp_ids'] ?? [];
             unset($data['stamp_ids']);
 
+            if(!isset($data['image'])){
+                throw new Exception('Необходимо установить изображение.');
+            }
+            
             $data['image'] = Storage::disk('public')->put('/images', $data['image']);
 
             $card = Card::firstOrCreate($data);
