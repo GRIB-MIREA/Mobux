@@ -18,7 +18,7 @@ class CardService
             unset($data['stamp_ids']);
 
             if(!isset($data['image'])){
-                throw new Exception('Необходимо установить изображение.');
+                return redirect()->back()->withErrors(['image' => 'Необходимо установить изображение.']);
             }
             
             $data['image'] = Storage::disk('public')->put('/images', $data['image']);
