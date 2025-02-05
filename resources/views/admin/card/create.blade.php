@@ -54,11 +54,6 @@
                   <span class="input-group-text">Загрузка</span>
                 </div>
               </div>
-              @if ($errors->has('image'))
-                  <div class="alert alert-danger">
-                      {{ $errors->first('image') }}
-                  </div>
-              @endif
             </div>
             <div class="form-group">
               <label>Укажите правила для текущей карточки. Например ограничение по региону, возрасту.</label>

@@ -31,6 +31,11 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body table-responsive p-0">
+              @if ($errors->has('image'))
+                  <div class="alert alert-danger">
+                      {{ $errors->first('image') }}
+                  </div>
+              @endif
               <table class="table table-hover text-nowrap">
                 <thead>
                   <tr>
