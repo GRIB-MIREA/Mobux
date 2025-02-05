@@ -18,7 +18,7 @@ class CardService
             unset($data['stamp_ids']);
 
             if(!isset($data['image'])){
-                return redirect()->route('admin.card.create')->withErrors(['image' => 'Необходимо установить изображение.'])->withInput();
+                return redirect()->back()->withErrors(['image' => 'Необходимо установить изображение.'])->withInput();
             }
             
             $data['image'] = Storage::disk('public')->put('/images', $data['image']);
