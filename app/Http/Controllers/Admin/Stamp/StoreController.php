@@ -14,6 +14,6 @@ class StoreController extends Controller
         $data = $request->validated();
         Stamp::firstOrCreate($data);
 
-        return redirect()->route('admin.stamp.index');
+        return redirect()->route('admin.stamp.index')->with('success', 'Пометка успешно создана.');
     }
 }

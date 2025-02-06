@@ -12,6 +12,6 @@ class DeleteController extends Controller
     public function __invoke(Stamp $stamp)
     {
         $stamp->delete();
-        return redirect()->route('admin.stamp.index');
+        return redirect()->route('admin.stamp.index')->with('success', 'Пометка успешно удалена.');
     }
 }

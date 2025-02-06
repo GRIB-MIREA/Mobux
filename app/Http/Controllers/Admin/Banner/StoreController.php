@@ -12,6 +12,6 @@ class StoreController extends BaseController
         $data = $request->validated();
         $this->service->store($data);
 
-        return redirect()->route('admin.banner.index');
+        return redirect()->route('admin.banner.index')->with('success', 'Баннер успешно создан.');
     }
 }

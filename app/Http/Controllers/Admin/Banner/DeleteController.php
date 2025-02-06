@@ -12,6 +12,6 @@ class DeleteController extends BaseController
     public function __invoke(Banner $banner)
     {
         $banner->delete();
-        return redirect()->route('admin.banner.index');
+        return redirect()->route('admin.banner.index')->with('success', 'Баннер успешно удален.');
     }
 }

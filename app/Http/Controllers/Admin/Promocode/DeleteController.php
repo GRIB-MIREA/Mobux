@@ -12,6 +12,6 @@ class DeleteController extends Controller
     public function __invoke(Promocode $promocode)
     {
         $promocode->delete();
-        return redirect()->route('admin.promocode.index');
+        return redirect()->route('admin.promocode.index')->with('success', 'Промокод успешно удален.');
     }
 }

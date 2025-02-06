@@ -14,6 +14,6 @@ class StoreController extends Controller
         $data = $request->validated();
         MailingHistory::firstOrCreate($data);
 
-        return redirect()->route('admin.mail.index');
+        return redirect()->route('admin.mail.index')->with('success', 'Рассылка успешно создана.');
     }
 }

@@ -12,6 +12,6 @@ class DeleteController extends BaseController
     public function __invoke(Card $card)
     {
         $card->delete();
-        return redirect()->route('admin.card.index');
+        return redirect()->route('admin.card.index')->with('success', 'Карточка успешно удалена.');
     }
 }

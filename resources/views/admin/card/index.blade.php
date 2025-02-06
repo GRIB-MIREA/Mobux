@@ -1,6 +1,29 @@
 @extends('admin.layouts.main')
 
 @section('content')
+<style>
+  .fixed-alert {
+    position: fixed;
+    top: 77px;
+    right: 20px;
+    z-index: 50;
+    transition: opacity 0.5s ease-in-out;
+}
+</style>
+@if (session('success'))
+    <div id="alert" class="fixed-alert alert alert-success flex items-center p-2 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
+        <span>{{ session('success') }}</span>
+    </div>
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('alert');
+            if (alert) {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500); // Удаляем элемент после исчезновения
+            }
+        }, 4000); // Время в миллисекундах до исчезновения (3 секунды)
+    </script>
+@endif
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">

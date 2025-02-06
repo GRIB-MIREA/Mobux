@@ -14,6 +14,6 @@ class StoreController extends Controller
         $data = $request->validated();
         Promocode::firstOrCreate($data);
 
-        return redirect()->route('admin.promocode.index');
+        return redirect()->route('admin.promocode.index')->with('success', 'Промокод успешно создан.');
     }
 }

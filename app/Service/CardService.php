@@ -7,14 +7,13 @@ use App\Models\Card;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\Admin\Card\StoreRequest;
 
 class CardService
 {
-    public function store($data) {
+    public function store(StoreRequest $request) {
         
-        // if(!isset($data['image'])){
-        //     return redirect()->back()->withErrors(['image' => 'Необходимо установить изображение.'])->withInput();
-        // }
+        $data = $request->validated();
 
         try{
             DB::beginTransaction();
@@ -25,6 +24,7 @@ class CardService
             $data['image'] = Storage::disk('public')->put('/images', $data['image']);
 
             $card = Card::firstOrCreate($data);
+
             if (!empty($stampIds)) {
                 $card->stamps()->attach($stampIds);
             }
