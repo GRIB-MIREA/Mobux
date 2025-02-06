@@ -12,9 +12,9 @@ class CardService
 {
     public function store($data) {
         
-        if(!isset($data['image'])){
-            return redirect()->back()->withErrors(['image' => 'Необходимо установить изображение.'])->withInput();
-        }
+        // if(!isset($data['image'])){
+        //     return redirect()->back()->withErrors(['image' => 'Необходимо установить изображение.'])->withInput();
+        // }
 
         try{
             DB::beginTransaction();
