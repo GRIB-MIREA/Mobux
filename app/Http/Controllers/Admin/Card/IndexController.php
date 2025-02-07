@@ -32,7 +32,11 @@ class IndexController extends BaseController
         }
     
         // Получаем результаты с пагинацией
-        $cards = $query->paginate(10);
+        $cards = $query->paginate(10)->appends([
+            'sort_by' => $sortBy,
+            'sort_direction' => $sortDirection,
+            'search' => $search,
+        ]);
 
         return view('admin.card.index', compact('cards', 'sortBy', 'sortDirection', 'search', 'notifications'));
     }
