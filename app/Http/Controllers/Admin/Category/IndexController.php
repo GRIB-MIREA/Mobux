@@ -19,7 +19,10 @@ class IndexController extends Controller
             $query->where('title', 'LIKE', "%{$search}%");
         }
 
-        $categories = $query->orderBy('position', 'asc')->paginate(10);
+        $categories = $query->orderBy('position', 'asc')->paginate(10)->appends([
+            'search' => $search,
+        ]);
+
         return view('admin.category.index', compact('categories', 'notifications', 'search'));
     }
 }

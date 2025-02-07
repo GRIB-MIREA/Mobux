@@ -26,7 +26,9 @@ class IndexController extends Controller
             });
         }
 
-        $promocodes = $query->paginate(10);
+        $promocodes = $query->paginate(10)->appends([
+            'search' => $search,
+        ]);
         return view('admin.promocode.index', compact('promocodes', 'search', 'notifications'));
     }
 }
