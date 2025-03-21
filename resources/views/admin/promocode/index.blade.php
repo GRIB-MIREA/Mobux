@@ -58,8 +58,9 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Название</th>
                     <th>Магазин</th>
+                    <th>Название</th>
+                    <th>Что дает?</th>
                     <th>Действует до</th>
                     <th colspan="3" class="text-center">Действия</th>
                   </tr>
@@ -68,8 +69,9 @@
                   @foreach ($promocodes as $promocode)
                     <tr>
                       <td>{{ $promocode->id }}</td>
-                      <td>{{ $promocode->title }}</td>
                       <td>{{ $promocode->card->title }}</td>
+                      <td>{{ $promocode->title }}</td>
+                      <td>{{ $promocode->reward }}</td>
                       <td>{{ Carbon\Carbon::parse($promocode->expiration_date)->translatedFormat('d F Y') }}</td>
                       <td class="text-center">
                         <a href="{{route('admin.promocode.show', $promocode->id)}}"><i class="far fa-eye"></i></a>
