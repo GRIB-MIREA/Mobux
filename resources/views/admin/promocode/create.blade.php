@@ -42,17 +42,6 @@
                             </div>
                             <div class="form-group">
                                 <label>Выберите магазин для этого промокода</label>
-                                <input type="text" name="search" placeholder="Поиск по заголовку"
-                                    value="{{ request('search') }}">
-                                @if ($cards->isEmpty())
-                                    <p>Не найдено карточек.</p>
-                                @else
-                                    <ul>
-                                        @foreach ($cards as $card)
-                                            <li>{{ $card->title }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
                                 <select name="card_id" class="form-control">
                                     @foreach ($cards as $card)
                                         <option value="{{ $card->id }}"
