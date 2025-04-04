@@ -6,8 +6,8 @@
     @else
         <div class="flex overflow-hidden">
         @foreach($banners as $banner)
-            <a href="{{ $banner->link }}" class="flex-shrink-0 w-full">
-                <img src="{{url('storage/' . $banner->image)}}" alt="Баннер" class="w-full h-auto">
+            <a href="{{ $banner->link }}" class="flex-shrink-0 w-full flex justify-center">
+                <img src="{{url('storage/' . $banner->image)}}" alt="Баннер" class="w-full lg:w-1/2 h-auto">
             </a>
         </div>
         @endforeach
