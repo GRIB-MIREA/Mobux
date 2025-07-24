@@ -33,7 +33,7 @@ class CreateController extends Controller
             // Отправляем сообщение только администратору
             Artisan::call('telegram:send', [
                 'message' => $cleanedMessage,
-                'user_id' => $adminTelegramId, // Передаем ID администратора в команду
+                'chat_id' => $adminTelegramId, // Передаем ID администратора в команду
             ]);
     
             // Сохраняем информацию об истории рассылки только для теста
