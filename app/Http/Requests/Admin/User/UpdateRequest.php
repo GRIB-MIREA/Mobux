@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'string|email|unique:users'.$this->user->id,
+            'email' => 'string|email|unique:users,email,' . $this->user->id,
             'password' => 'string',
             'telegram_id' => 'integer',
             'telegram_username' => 'string',
