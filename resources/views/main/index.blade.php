@@ -1,89 +1,60 @@
 @extends('layouts.app')
 @section('title', 'Скидки, промокоды и кэшбек - MOBUX')
 @section('content')
-<header class="py-6 bg-[#1b1a20]">
-    <div class="container mx-auto flex justify-between items-center">
-        <div class="text-yellow-400 text-3xl font-bold">
-            <img src="{{asset('assets/img/logo.png')}}" alt="Логотип" class="h-8">
+<main class="min-h-screen overflow-hidden bg-[#101114] text-white">
+    <section class="relative min-h-[calc(100vh-44px)] px-5 py-6 sm:px-8 lg:px-12">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_72%_34%,rgba(250,204,21,.22),transparent_32%),linear-gradient(135deg,#101114_0%,#191a1f_48%,#242111_100%)]"></div>
+            <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#101114] to-transparent"></div>
         </div>
-        <nav class="hidden md:flex space-x-4">
-            <ul class="flex space-x-4 text-gray-100">
-                <li><a href="#about" class="hover:text-yellow-400">О нас</a></li>
-                <li><a href="#partners" class="hover:text-yellow-400">Партнеры</a></li>
-                <li><a href="#advantages" class="hover:text-yellow-400">Преимущества</a></li>
-            </ul>
-        </nav>
-        <button id="mobile-menu-button" class="md:hidden text-yellow-400 focus:outline-none">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2zm0 5h14a1 1 0 110 2H3a1 1 0 110-2z" clip-rule="evenodd" /></svg>
-        </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
-        <ul class="flex flex-col items-center space-y-2 py-4">
-            <li><a href="#about" class="hover:text-yellow-400">О нас</a></li>
-            <li><a href="#partners" class="hover:text-yellow-400">Партнеры</a></li>
-            <li><a href="#advantages" class="hover:text-yellow-400">Преимущества</a></li>
-        </ul>
-    </div>
-</header>
 
-<!-- Introduction Section -->
-<section id="about" class="py-20 bg-gradient-to-r from-[#1b1a20] to-[#242426] relative">
-    <div class="container mx-auto flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 lg:text-left lg:ml-20 text-center mb-10 md:mb-0">
-            <h2 class="font-bold lg:text-7xl text-xl mb-4 text-gray-100">Все скидки тут</h2>
-            <p class="text-xl mb-8 text-gray-100">Сотни предложений ждут вас</p>
-            <a href="#partners" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg hover:bg-yellow-300 transition">Посмотреть промокоды</a>
+        <div class="relative mx-auto flex min-h-[calc(100vh-92px)] max-w-7xl flex-col">
+            <header class="flex items-center justify-between">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="MOBUX" class="h-8 w-auto sm:h-10">
+                <a
+                    href="{{ route('bot.index') }}"
+                    class="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white/90 transition hover:border-yellow-300 hover:bg-yellow-300 hover:text-[#101114]"
+                >
+                    Открыть каталог
+                </a>
+            </header>
+
+            <div class="grid flex-1 items-center gap-12 py-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(380px,1fr)] lg:py-8">
+                <div class="max-w-3xl">
+                    <p class="mb-5 inline-flex rounded-full border border-yellow-300/30 bg-yellow-300/10 px-4 py-2 text-sm font-semibold uppercase tracking-[.22em] text-yellow-200">
+                        MOBUX
+                    </p>
+                    <h1 class="max-w-4xl text-5xl font-black leading-[.92] text-white sm:text-7xl lg:text-8xl">
+                        Все скидки тут
+                    </h1>
+                    <p class="mt-7 max-w-xl text-xl leading-8 text-white/72 sm:text-2xl">
+                        Сотни предложений ждут вас
+                    </p>
+                    <div class="mt-10">
+                        <a
+                            href="{{ route('bot.index') }}"
+                            class="inline-flex items-center justify-center rounded-full bg-yellow-300 px-7 py-4 text-base font-bold text-[#101114] shadow-[0_18px_48px_rgba(250,204,21,.26)] transition hover:-translate-y-0.5 hover:bg-yellow-200"
+                        >
+                            Посмотреть промокоды
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative flex min-h-[360px] items-end justify-center lg:min-h-[620px]">
+                    <div class="absolute bottom-8 h-[68%] w-[72%] rounded-full bg-yellow-300/15 blur-3xl"></div>
+                    <div class="absolute bottom-0 h-[44%] w-full max-w-[620px] rounded-[50%] bg-black/35 blur-2xl"></div>
+                    <img
+                        src="{{ asset('assets/img/iphone.png') }}"
+                        alt="Промокоды MOBUX в телефоне"
+                        class="relative z-10 max-h-[72vh] w-auto max-w-[82%] translate-y-4 object-contain drop-shadow-[0_34px_80px_rgba(0,0,0,.55)] sm:max-w-[62%] lg:max-w-[74%]"
+                    >
+                </div>
+            </div>
         </div>
-        <div class="md:w-1/2 flex justify-center relative">
-            <img src="{{asset('assets/img/iphone.png')}}" alt="iPhone" class="lg:w-2/3 w-1/2 h-auto absolute right-0 -top-20">
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 
-<!-- Partners Section -->
-<section id="partners" class="py-20 bg-[#1b1a20]">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-6">Наши партнёры</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 1</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 2</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 3</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 4</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 5</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 6</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 7</div>
-            <div class="p-4 bg-gray-700 rounded-lg">Партнер 8</div>
-        </div>
-    </div>
-</section>
-
-<!-- Advantages Section -->
-<section id="advantages" class="py-20 bg-[#242426]">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-6">Преимущества нашего сайта</h2>
-        <ul class="list-disc list-inside space-y-4">
-            <li>🔹 Широкий выбор промокодов</li>
-            <li>🔹 Регулярные обновления</li>
-            <li>🔹 Удобный интерфейс</li>
-            <li>🔹 Поддержка 24/7</li>
-            <li>🔹 Легкость в использовании</li>
-        </ul>
-    </div>
-    {{-- <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="mobux_bot" data-size="large" data-auth-url="https://mobux.ru/auth/telegram" data-request-access="write"></script> --}}
-</section>
-
-<!-- Footer -->
-<footer class="py-6 bg-[#1b1a20] text-center">
-    <p>&copy; 2023 Промокоды для магазинов. Все права защищены.</p>
+<footer class="border-t border-white/10 bg-[#101114] px-5 py-3 text-center text-xs text-white/45">
+    Site by Восход Digital &copy;
 </footer>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("menu-toggle").addEventListener("click", function() {
-        var menu = document.getElementById("mobile-menu");
-        menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    });
-});
-</script>
 @endsection
