@@ -68,7 +68,7 @@
               <div class="!visible hidden text-center text-white mt-8"
               id="collapseRules"
               data-twe-collapse-item>
-              {!!$card->rules!!}
+              {{ $card->rules }}
             </div>
             </div>
         </section>

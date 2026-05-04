@@ -34,6 +34,7 @@ class User extends Authenticatable
         'telegram_username',
         'image',
         'email',
+        'password',
         'telegram_token',
         'role',
     ];
@@ -55,5 +56,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'role' => 'integer',
     ];
 }

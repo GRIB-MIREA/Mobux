@@ -3,12 +3,7 @@
 use App\Http\Controllers\Admin\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\Mailing\CreateController;
-use App\Http\Controllers\Bot\IndexController;
-use App\Http\Middleware\TelegramRequest;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +15,6 @@ use Illuminate\Support\Facades\Http;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/webhook-data', function() {
-    dd(Cache::get('webhook-data'));
-});
-Route::get('/bot-data', function() {
-    dd(Cache::get('bot-data'));
-});
-Route::any('/api/auth', [LoginController::class, 'auth']);
-Route::get('/auth/telegram', [LoginController::class, 'authenticate'])->middleware('auth');
-
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');
@@ -108,10 +93,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     Route::group(['namespace' => 'Mailing', 'prefix' => 'mails'], function () {
         Route::get('/', 'IndexController')->name('admin.mail.index');
         Route::get('/create', 'CreateController')->name('admin.mail.create');
-        Route::post('/', 'StoreController')->name('admin.mail.store');
         Route::post('/', [CreateController::class, 'sendMessage'])->name('admin.mail.send');
     });
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);

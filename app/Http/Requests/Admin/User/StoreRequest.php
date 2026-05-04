@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreRequest extends FormRequest
 {
@@ -26,13 +27,13 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'string|email|unique:users',
-            'password' => 'string',
-            'telegram_id' => 'integer',
-            'telegram_username' => 'string',
-            'image' => 'file',
-            'telegram_token' => 'string',
-            'role' => 'required|integer',
+            'email' => 'required|string|email|unique:users,email',
+            'password' => 'required|string|min:8',
+            'telegram_id' => 'nullable|integer',
+            'telegram_username' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'telegram_token' => 'nullable|string',
+            'role' => ['required', 'integer', Rule::in([0, 1])],
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -25,14 +26,14 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'last_name' => 'required|string',
-            'email' => 'string|email|unique:users,email,' . $this->user->id,
-            'password' => 'string',
-            'telegram_id' => 'integer',
-            'telegram_username' => 'string',
-            'image' => 'file',
-            'telegram_token' => 'string',
-            'role' => 'required|integer',
+            'last_name' => 'nullable|string',
+            'email' => 'required|string|email|unique:users,email,' . $this->route('user')->id,
+            'password' => 'nullable|string|min:8',
+            'telegram_id' => 'nullable|integer',
+            'telegram_username' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'telegram_token' => 'nullable|string',
+            'role' => ['required', 'integer', Rule::in([0, 1])],
         ];
     }
 

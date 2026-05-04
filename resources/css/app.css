@@ -1,5 +1,6 @@
+@import 'tw-elements/css/tw-elements.min.css';
+@import 'flowbite/dist/flowbite.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'tw-elements/dist/css/index.min.css';
-@import 'flowbite';

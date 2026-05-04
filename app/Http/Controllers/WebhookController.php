@@ -13,22 +13,27 @@ class WebhookController extends Controller
 {
     public function index(Request $request)
     {
-        Cache::forever('webhook-data', $request->all());
-        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        $secret = config('telegram.bots.mybot.webhook_secret');
+        if ($secret && !hash_equals($secret, (string) $request->header('X-Telegram-Bot-Api-Secret-Token'))) {
+            abort(403);
+        }
+
+        $telegram = new Api(config('telegram.bots.mybot.token'));
         $updates = $telegram->getWebhookUpdates();
         
 
         if ($updates->getMessage()) {
             $chatId = $updates->getMessage()->getChat()->getId();
-            $text = $updates->getMessage()->getText();
-            $this->sendStartMessage($chatId, $text);
+            $this->sendStartMessage($chatId);
         }
+
+        return response()->noContent();
     }
 
     private function sendStartMessage($chatId)
     {
-        $user = TelegramUser::firstOrCreate(['chat_id' => $chatId]);
-        $token = env('TELEGRAM_BOT_TOKEN');
+        TelegramUser::firstOrCreate(['chat_id' => $chatId]);
+        $token = config('telegram.bots.mybot.token');
         $url = "https://api.telegram.org/bot"."$token"."/sendMessage";
 
         $webAppUrl = 'https://t.me/mobux_bot/app';

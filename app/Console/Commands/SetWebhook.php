@@ -28,8 +28,15 @@ class SetWebhook extends Command
      */
     public function handle()
     {
-        Http::post('https://api.telegram.org/bot7770123301:AAH_3y0slyu2-BSVEjJ2ruBFivIf5cbRLfQ/setWebhook', [
-            'url' => 'https://mobux.ru/api/webhook'
-        ])->json();
+        $token = config('telegram.bots.mybot.token');
+        $payload = [
+            'url' => config('telegram.bots.mybot.webhook_url'),
+        ];
+
+        if (config('telegram.bots.mybot.webhook_secret')) {
+            $payload['secret_token'] = config('telegram.bots.mybot.webhook_secret');
+        }
+
+        Http::post("https://api.telegram.org/bot{$token}/setWebhook", $payload)->json();
     }
 }

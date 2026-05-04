@@ -24,8 +24,8 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|file',
-            'link' => 'required|string'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'link' => 'required|url|max:2048'
         ];
     }
 }
