@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'telegram_mailing' => [
+        'test_chat_id' => env('TELEGRAM_TEST_CHAT_ID'),
+        'delay_seconds' => (int) env('TELEGRAM_MAILING_DELAY_SECONDS', 1),
+    ],
+
 ];

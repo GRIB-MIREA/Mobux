@@ -24,7 +24,16 @@
             @csrf
             <div class="form-group">
               <label>Напишите текст рассылки</label>
-              <textarea id="summernote" name="message">{{old('message')}}</textarea>
+              <textarea
+                name="message"
+                rows="10"
+                class="form-control"
+                maxlength="4096"
+                placeholder="Введите текст для Telegram. Можно использовать Markdown: *жирный*, _курсив_, [ссылка](https://example.com). HTML-теги будут удалены."
+              >{{ old('message') }}</textarea>
+              <small class="form-text text-muted">
+                Сообщение отправляется через очередь. Для красивого форматирования используйте Markdown, а не HTML.
+              </small>
               @error('message')
                 <div class="text-danger">Это поле необходимо заполнить</div>
               @enderror
@@ -33,6 +42,9 @@
               <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="test" name="test" value="1">
                   <label class="form-check-label" for="test">Отправить как тестовое сообщение</label>
+                  @error('test')
+                    <div class="text-danger">{{ $message }}</div>
+                  @enderror
               </div>
             </div>
             <input type="submit" class="btn btn-primary" value="Создать рассылку">
