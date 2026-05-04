@@ -12,9 +12,10 @@ class CardSearch extends Component
 
     public function render()
     {
-        $cards = Card::where('title', 'like', '%' . $this->search . '%')
-                    // ->orWhere('category_id', 'like', '%' . $this->search . '%')
-                    ->get();
+        $cards = Card::withPromocodes()
+            ->where('title', 'like', '%' . $this->search . '%')
+            ->with(['category', 'stamps'])
+            ->get();
 
         $categories = Category::where('title', 'like', '%' . $this->search . '%')
                 // ->orWhere('category_id', 'like', '%' . $this->search . '%')

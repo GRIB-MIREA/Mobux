@@ -5,10 +5,7 @@ namespace App\Http\Controllers\Bot;
 use App\Models\Banner;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Card;
-use App\Models\User;
-use App\Models\Stamp;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 
 class IndexController extends BaseController
 {
@@ -43,9 +40,12 @@ class IndexController extends BaseController
         //          'photo_url' => $image,
         //      ]);
         //  }
-        Cache::forever('bot-data', $request->all());
         $banners = Banner::all();
-        $cards = Card::orderBy('position', 'asc')->with('stamps')->get();  
+        $cards = Card::withPromocodes()
+            ->orderBy('position', 'asc')
+            ->with(['category', 'stamps'])
+            ->get();
+
         return view('bot.index', compact('cards', 'banners'));
     }
 }

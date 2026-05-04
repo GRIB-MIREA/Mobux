@@ -25,4 +25,9 @@ class Card extends Model
     {
         return $this->hasMany(Promocode::class);
     }
+
+    public function scopeWithPromocodes($query)
+    {
+        return $query->whereHas('promocodes');
+    }
 }

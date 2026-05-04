@@ -12,9 +12,13 @@ class IndexController extends BaseController
     public function __invoke($id)
     {
         $category = Category::findOrFail($id);
-        $cards = $category->cards;
+        $cards = $category->cards()
+            ->withPromocodes()
+            ->orderBy('position', 'asc')
+            ->with(['category', 'stamps'])
+            ->get();
 
-        $cardsCount = $category->cards()->count();
+        $cardsCount = $category->cards()->withPromocodes()->count();
         $currentDate = Carbon::now();
         $titleDate = $currentDate->translatedFormat('F Y');  
         return view('bot.category.index', compact('cards', 'category', 'titleDate', 'cardsCount'));
