@@ -5,7 +5,7 @@
         <section class="px-4 sm:px-6">
             <div
                 id="banner-carousel"
-                class="relative mx-auto w-full max-w-5xl overflow-hidden rounded-md border border-zinc-800 bg-zinc-900"
+                class="relative mx-auto w-full max-w-5xl overflow-hidden rounded-md bg-zinc-900"
                 data-carousel-count="{{ $banners->count() }}"
             >
                 <div class="flex transition-transform duration-500 ease-out" data-carousel-track>
@@ -14,7 +14,7 @@
                             <img
                                 src="{{ url('storage/' . $banner->image) }}"
                                 alt="Banner"
-                                class="h-32 w-full object-cover sm:h-44 md:h-56 lg:h-64 xl:h-72"
+                                class="h-32 w-full object-cover text-center sm:h-44 md:h-56 lg:h-64 xl:h-72"
                                 loading="{{ $loop->first ? 'eager' : 'lazy' }}"
                             >
                         </a>
