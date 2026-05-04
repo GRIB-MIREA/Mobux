@@ -148,7 +148,6 @@ class ImportPerfluencePromocodes extends Command
             'description' => $description,
             'rules' => $rules,
             'image' => $image,
-            'link' => $project['site'] ?? null,
             'perfluence_site' => $project['site'] ?? null,
             'position' => $card->position ?: (((int) Card::query()->max('position')) + 1),
             'category_id' => $category->id,
