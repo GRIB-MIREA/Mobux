@@ -55,6 +55,6 @@
 </main>
 
 <footer class="border-t border-white/10 bg-[#101114] px-5 py-3 text-center text-xs text-white/45">
-    Site by Восход Digital &copy;
+    <p>Разработка сайта: <a href="https://t.me/dlitvinoff" target="_blank">Litvinoff</a></p>
 </footer>
 @endsection
