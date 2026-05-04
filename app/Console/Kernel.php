@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('promocodes:delete-expired')->daily();
+        $schedule->command('perfluence:import')->dailyAt('03:00');
     }
 
     /**

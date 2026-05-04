@@ -36,4 +36,9 @@ return [
         'delay_seconds' => (int) env('TELEGRAM_MAILING_DELAY_SECONDS', 1),
     ],
 
+    'perfluence' => [
+        'promocode_api_url' => env('PERFLUENCE_PROMOCODE_API_URL', 'https://dash.perfluence.net/blogger/promocode-api/json'),
+        'promocode_api_key' => env('PERFLUENCE_PROMOCODE_API_KEY'),
+    ],
+
 ];

@@ -95,6 +95,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/create', 'CreateController')->name('admin.mail.create');
         Route::post('/', [CreateController::class, 'sendMessage'])->name('admin.mail.send');
     });
+    Route::group(['namespace' => 'Settings', 'prefix' => 'settings'], function () {
+        Route::get('/', 'IndexController')->name('admin.settings.index');
+        Route::patch('/', 'UpdateController')->name('admin.settings.update');
+    });
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 });
 
