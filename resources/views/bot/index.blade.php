@@ -1,21 +1,42 @@
 @extends('layouts.bot')
 @section('title', 'Скидки, промокоды и кэшбек - MOBUX')
 @section('content')
-    @if ($banners->isEmpty())
-        <div class="hidden"></div>
-    @else
-        <div class="flex overflow-hidden">
-        @foreach($banners as $banner)
-            <a href="{{ $banner->link }}" class="flex-shrink-0 w-full flex justify-center">
-                <img src="{{url('storage/' . $banner->image)}}" alt="Баннер" class="w-full lg:w-1/2 h-auto">
-            </a>
-        </div>
-        @endforeach
-            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2 pb-2">
-                @foreach($banners as $index => $banner)
-                    <button class="w-3 h-3 bg-gray-800 rounded-full" data-te-slider-to="{{ $index }}"></button>
-                @endforeach
-            </div>   
+    @if ($banners->isNotEmpty())
+        <section class="px-4 sm:px-6">
+            <div
+                id="banner-carousel"
+                class="relative mx-auto w-full max-w-5xl overflow-hidden rounded-md border border-zinc-800 bg-zinc-900"
+                data-carousel-count="{{ $banners->count() }}"
+            >
+                <div class="flex transition-transform duration-500 ease-out" data-carousel-track>
+                    @foreach($banners as $banner)
+                        <a href="{{ $banner->link }}" class="block min-w-full" target="_blank" rel="noopener">
+                            <img
+                                src="{{ url('storage/' . $banner->image) }}"
+                                alt="Banner"
+                                class="h-32 w-full object-cover sm:h-44 md:h-56 lg:h-64 xl:h-72"
+                                loading="{{ $loop->first ? 'eager' : 'lazy' }}"
+                            >
+                        </a>
+                    @endforeach
+                </div>
+
+                @if ($banners->count() > 1)
+                    <div class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+                        @foreach($banners as $index => $banner)
+                            <button
+                                type="button"
+                                class="h-2.5 w-2.5 rounded-full bg-white/50 transition data-[active=true]:w-6 data-[active=true]:bg-white"
+                                data-carousel-dot
+                                data-index="{{ $index }}"
+                                data-active="{{ $loop->first ? 'true' : 'false' }}"
+                                aria-label="Show banner {{ $index + 1 }}"
+                            ></button>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </section>
     @endif
     @livewire('card-search')
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
@@ -52,6 +73,34 @@
         @endforeach
     </div>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('banner-carousel');
+            if (!carousel) {
+                return;
+            }
+
+            const track = carousel.querySelector('[data-carousel-track]');
+            const dots = carousel.querySelectorAll('[data-carousel-dot]');
+            const count = Number(carousel.dataset.carouselCount || 0);
+            let current = 0;
+
+            const showSlide = (index) => {
+                current = (index + count) % count;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((dot, dotIndex) => {
+                    dot.dataset.active = dotIndex === current ? 'true' : 'false';
+                });
+            };
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => showSlide(Number(dot.dataset.index)));
+            });
+
+            if (count > 1) {
+                setInterval(() => showSlide(current + 1), 3000);
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             // Проверяем, доступен ли объект Telegram.WebApp
             if (Telegram.WebApp) {
