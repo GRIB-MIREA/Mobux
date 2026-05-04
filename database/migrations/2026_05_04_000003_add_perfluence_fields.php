@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('perfluence_project_id')->nullable()->unique()->after('id');
             }
             if (!Schema::hasColumn('cards', 'perfluence_site')) {
-                $table->string('perfluence_site')->nullable()->after('link');
+                $table->string('perfluence_site')->nullable()->after('title');
             }
         });
 
