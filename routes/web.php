@@ -49,6 +49,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/', 'IndexController')->name('admin.card.index');
         Route::get('/create', 'CreateController')->name('admin.card.create');
         Route::post('/', 'StoreController')->name('admin.card.store');
+        Route::post('/perfluence/import', 'ImportPerfluenceController')->name('admin.card.perfluence.import');
         Route::get('/{card}', 'ShowController')->name('admin.card.show');
         Route::get('/{card}/edit', 'EditController')->name('admin.card.edit');
         Route::patch('/{card}', 'UpdateController')->name('admin.card.update');

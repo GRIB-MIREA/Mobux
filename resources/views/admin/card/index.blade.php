@@ -24,6 +24,20 @@
         }, 4000); // Время в миллисекундах до исчезновения (3 секунды)
     </script>
 @endif
+@if (session('error'))
+    <div id="alert-error" class="fixed-alert alert alert-danger flex items-center p-2 mb-4 text-sm" role="alert">
+        <span>{{ session('error') }}</span>
+    </div>
+    <script>
+        setTimeout(() => {
+            const alert = document.getElementById('alert-error');
+            if (alert) {
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            }
+        }, 6000);
+    </script>
+@endif
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -41,9 +55,18 @@
   <section class="content">
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-1 col-3 mb-3">
+      <div class="row align-items-start">
+        <div class="col-auto mb-3">
           <a href="{{ route('admin.card.create') }}" class="btn btn-block btn-primary">Добавить</a>
+        </div>
+        <div class="col-auto mb-3">
+          <form method="POST" action="{{ route('admin.card.perfluence.import') }}" onsubmit="return confirm('Запустить импорт магазинов и промокодов с Perfluence?')">
+            @csrf
+            <button type="submit" class="btn btn-success">
+              <i class="fas fa-sync-alt mr-1"></i>
+              Импортировать с Perfluence
+            </button>
+          </form>
         </div>
         <form method="GET" action="{{ route('admin.card.index') }}" class="d-flex mb-4">
           <input type="text" name="search" class="form-control me-2" placeholder="Поиск по названию" value="{{ request('search') }}">
