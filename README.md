@@ -57,6 +57,7 @@ php artisan companies:parse "Москва" "Кофейни" --provider=overpass 
 - Рейтингов и отзывов в OSM обычно нет.
 - Сайт может быть указан в `website` или `contact:website`.
 - Если на локальном Windows-окружении есть SSL-проблема с сертификатами, для dev-режима можно временно указать `COMPANY_PARSER_OVERPASS_VERIFY=false`.
+- Если публичный Overpass вернул `504`, провайдер теперь сам попробует fallback endpoint'ы и меньший радиус поиска. При необходимости можно дополнительно уменьшить `COMPANY_PARSER_LIMIT` и `COMPANY_PARSER_OVERPASS_RADIUS_METERS`.
 
 ### Как настроить queue worker
 

@@ -41,6 +41,8 @@ class MockCompanyParserProvider implements CompanyParserProviderInterface
                 website: $hasWebsite ? sprintf('https://%s.example.com', strtolower(str_replace(' ', '-', $externalId))) : null,
                 phone: sprintf('+7 (900) %03d-%02d-%02d', ($seed + $index) % 1000, ($index * 7) % 100, ($index * 11) % 100),
                 address: sprintf('%s, %s, %d', $request->city, ucfirst(mb_strtolower($request->category)).' street', 10 + $index),
+                latitude: 55.751244 + ($index / 1000),
+                longitude: 37.618423 + ($index / 1000),
                 sourceUrl: sprintf('https://mock-source.local/%s', $externalId),
                 rawPayload: [
                     'provider' => 'mock',

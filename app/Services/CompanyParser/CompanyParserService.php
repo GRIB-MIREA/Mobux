@@ -117,6 +117,8 @@ class CompanyParserService
                     'website' => $this->normalizeNullableString($result->website),
                     'phone' => $this->normalizeNullableString($result->phone),
                     'address' => $this->normalizeNullableString($result->address),
+                    'latitude' => $result->latitude,
+                    'longitude' => $result->longitude,
                     'source_url' => $this->normalizeNullableString($result->sourceUrl),
                     'last_seen_at' => $timestamp,
                     'raw_payload' => $result->rawPayload,

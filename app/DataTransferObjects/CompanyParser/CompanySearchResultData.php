@@ -17,6 +17,8 @@ final class CompanySearchResultData
         public readonly ?string $website,
         public readonly ?string $phone,
         public readonly ?string $address,
+        public readonly ?float $latitude,
+        public readonly ?float $longitude,
         public readonly ?string $sourceUrl,
         public readonly array $rawPayload = [],
     ) {

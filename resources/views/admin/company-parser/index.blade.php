@@ -235,7 +235,18 @@
                       <span class="text-danger">Не указан</span>
                     @endif
                   </td>
-                  <td>{{ $company->phone ?: 'Не указан' }}</td>
+                  <td>
+                    @if ($company->phone)
+                      {{ $company->phone }}
+                    @else
+                      <div>Не указан</div>
+                      @if ($company->map_url)
+                        <div class="small mt-1">
+                          <a href="{{ $company->map_url }}" target="_blank" rel="noopener noreferrer">Открыть на карте</a>
+                        </div>
+                      @endif
+                    @endif
+                  </td>
                   <td>{{ $company->address ?: 'Не указан' }}</td>
                   <td>{{ $company->updated_at?->format('d.m.Y H:i') }}</td>
                 </tr>
