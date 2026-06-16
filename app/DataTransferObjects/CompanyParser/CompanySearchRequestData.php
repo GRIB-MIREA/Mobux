@@ -19,10 +19,10 @@ final class CompanySearchRequestData
      */
     public static function fromArray(array $data): self
     {
-        $limit = $data['limit'] ?? 20;
+        $limit = $data['limit'] ?? (int) config('company_parser.default_limit', 50);
 
         if ($limit === null || $limit === '') {
-            $limit = 20;
+            $limit = (int) config('company_parser.default_limit', 50);
         }
 
         return new self(

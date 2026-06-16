@@ -59,7 +59,7 @@
                 </div>
                 <div class="form-group">
                   <label for="limit">Лимит результатов</label>
-                  <input id="limit" type="number" min="1" max="100" name="limit" value="{{ old('limit', 20) }}" class="form-control">
+                  <input id="limit" type="number" min="1" max="100" name="limit" value="{{ old('limit', config('company_parser.default_limit', 50)) }}" class="form-control">
                 </div>
               </div>
               <div class="card-footer">
