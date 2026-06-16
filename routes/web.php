@@ -100,6 +100,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/', 'IndexController')->name('admin.settings.index');
         Route::patch('/', 'UpdateController')->name('admin.settings.update');
     });
+    Route::group(['namespace' => 'CompanyParser', 'prefix' => 'company-parser'], function () {
+        Route::get('/', 'IndexController')->name('admin.company-parser.index');
+        Route::post('/runs', 'StoreController')->name('admin.company-parser.store');
+    });
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
 });
 

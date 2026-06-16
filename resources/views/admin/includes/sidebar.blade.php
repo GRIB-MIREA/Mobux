@@ -57,6 +57,12 @@
           <p>Настройки</p>
         </a>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('admin.company-parser.index') }}" class="nav-link">
+          <i class="nav-icon fas fa-building"></i>
+          <p>Парсер компаний</p>
+        </a>
+      </li>
       <li class="nav-item mt-3 text-center">
         <form action="{{route('logout')}}" method="POST">
           @csrf

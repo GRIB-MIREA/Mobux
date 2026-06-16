@@ -64,3 +64,55 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Парсер компаний
+
+### Как запустить миграции
+
+```bash
+php artisan migrate
+```
+
+### Как открыть модуль в админке
+
+После входа в админ-панель откройте раздел `Парсер компаний` в боковом меню или сразу перейдите на `/admin/company-parser`.
+
+### Как запустить mock-парсер
+
+Из админки:
+
+1. Откройте `Парсер компаний`.
+2. Укажите город, категорию и провайдер `mock`.
+3. Нажмите `Запустить парсер`.
+
+Из CLI:
+
+```bash
+php artisan companies:parse-mock "Москва" "Кофейни" --limit=20 --sync
+```
+
+Если убрать `--sync`, запуск будет поставлен в очередь.
+
+### Как настроить queue worker
+
+1. Укажите в `.env`:
+
+```dotenv
+QUEUE_CONNECTION=database
+COMPANY_PARSER_QUEUE=company-parser
+```
+
+2. Убедитесь, что таблица `jobs` создана, затем запустите worker:
+
+```bash
+php artisan queue:work --queue=company-parser,default
+```
+
+### Как подключить реальный provider
+
+1. Создайте класс, который реализует `App\Services\CompanyParser\Contracts\CompanyParserProviderInterface`.
+2. Вынесите всю интеграцию с API или внешним сервисом внутрь этого класса.
+3. Зарегистрируйте провайдер в `config/company_parser.php`.
+4. При необходимости смените `COMPANY_PARSER_PROVIDER` в `.env`.
+
+Контроллеры менять не нужно: модуль берет доступные провайдеры из конфигурации и запускает их через сервисный слой.
