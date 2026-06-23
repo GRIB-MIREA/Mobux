@@ -71,6 +71,8 @@ return [
 
     'timezone' => 'UTC',
 
+    'artisan_php_binary' => env('ARTISAN_PHP_BINARY', 'php'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

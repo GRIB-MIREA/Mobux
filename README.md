@@ -59,6 +59,32 @@ php artisan companies:parse "Москва" "Кофейни" --provider=overpass 
 - Если на локальном Windows-окружении есть SSL-проблема с сертификатами, для dev-режима можно временно указать `COMPANY_PARSER_OVERPASS_VERIFY=false`.
 - Если публичный Overpass вернул `504`, провайдер теперь сам попробует fallback endpoint'ы и меньший радиус поиска. При необходимости можно дополнительно уменьшить `COMPANY_PARSER_LIMIT` и `COMPANY_PARSER_OVERPASS_RADIUS_METERS`.
 
+### Google Maps / Places API
+
+Пример запуска:
+
+```bash
+php artisan companies:parse "Москва" "Кофейни" --provider=google --limit=20 --sync
+```
+
+Для запуска нужен `COMPANY_PARSER_GOOGLE_API_KEY`.
+
+### Yandex Maps / Places API
+
+Пример запуска:
+
+```bash
+php artisan companies:parse "Москва" "Кофейни" --provider=yandex --limit=20 --sync
+```
+
+Для запуска нужен `COMPANY_PARSER_YANDEX_API_KEY`.
+
+Примечание:
+
+- В проекте используются официальные API-провайдеры, а не HTML-скрейпинг карт.
+- Google Places API тарифицируется по биллингу Google Maps Platform.
+- Yandex Places API требует ключ и коммерческий доступ к Places / Organization Search.
+
 ### Как настроить queue worker
 
 Укажите в `.env`:
